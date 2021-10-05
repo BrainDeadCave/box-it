@@ -1,0 +1,13 @@
+#/usr/bin/sh
+
+# Apache2 Front-End Server
+ssh -o ConnectTimeout=10 composer@10.208.72.38 -p5001 composer
+
+# Celery Backend server
+ssh -o ConnectTimeout=10 composer@10.192.228.42 -p5001 composer
+
+# RabbitMQ server
+ssh -o ConnectTimeout=10 composer@10.192.229.7 -p5001 composer
+
+# MySql Database Server
+ssh -o ConnectTimeout=10 composer@10.192.229.113 -p5001 composer
