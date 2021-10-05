@@ -1,0 +1,33 @@
+{
+    "name": "DebugActions",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "ae2c9511-4c88-438b-a945-9f44d129cd31",
+            "actions": [
+                {
+                    "name": "MousePos",
+                    "type": "Value",
+                    "id": "819c23eb-eeb2-4fb1-88b7-0c64a4514072",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ca71f542-0c26-43be-a5a8-c587314cbc46",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
