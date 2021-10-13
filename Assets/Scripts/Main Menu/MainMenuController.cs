@@ -30,7 +30,7 @@ public class MainMenuController : MonoBehaviour
 		{
             // Spawn Box
             float spawnRotation = Random.Range(0.0f, 180.0f);
-            Vector3 spawnPosition = m_MainCamera.ScreenToWorldPoint(new Vector3(Random.Range(spawnAreaLeft.x, spawnAreaRight.x), Random.Range(spawnAreaLeft.y, spawnAreaRight.y), m_MainCamera.nearClipPlane));
+            Vector3 spawnPosition = m_MainCamera.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(Screen.height, Screen.height), m_MainCamera.nearClipPlane));
             spawnPosition.y += spawnOffsetY;
 
             Instantiate(boxPrefabToSpawn, spawnPosition, Quaternion.AngleAxis(spawnRotation, Vector3.forward));

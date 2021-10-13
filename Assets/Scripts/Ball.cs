@@ -39,6 +39,10 @@ public class Ball : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		GateZone zone = collision.gameObject.GetComponent<GateZone>();
+		if (!zone)
+		{
+            return;
+		}
 		if (!zone.CanPassThrough)
 		{
             Debug.LogFormat("Passed gate with multiplier {0}, would credit ${1}. Impassible gate, now destroying.", zone.Multiplier, value * zone.Multiplier);
