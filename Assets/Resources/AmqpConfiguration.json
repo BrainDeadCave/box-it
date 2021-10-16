@@ -1,0 +1,26 @@
+{
+    "Connections": [
+        {
+            "Name": "localhost",
+            "Host": "localhost",
+            "AmqpPort": 5672,
+            "WebPort": 15672,
+            "VirtualHost": "/",
+            "Username": "guest",
+            "Password": "guest",
+            "ReconnectInterval": 5,
+            "RequestedHeartBeat": 30
+        },
+        {
+            "Name": "my_vm",
+            "Host": "192.168.56.56",
+            "AmqpPort": 5672,
+            "WebPort": 15672,
+            "VirtualHost": "test",
+            "Username": "test",
+            "Password": "test",
+            "ReconnectInterval": 5,
+            "RequestedHeartBeat": 30
+        }
+    ]
+}
