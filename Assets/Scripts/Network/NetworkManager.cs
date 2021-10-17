@@ -10,7 +10,7 @@ using RabbitMQ.Client.Events;
 
 public class NetworkManager : MonoBehaviour
 {
-    public static NetworkManager Instance;
+	public static NetworkManager Instance;
 
 	[SerializeField]
 	private string rmqUsername;
@@ -22,19 +22,22 @@ public class NetworkManager : MonoBehaviour
 	private string rmqVirtualHost;
 
 	private IModel channel;
+
+	private bool m_DoConsumeEvalNextFrame = false;
+	private string m_ConsumeEvalMessage = "{}";
 	private void Awake()
 	{
 		if (!Instance)
 		{
-            Instance = this;
+			Instance = this;
 		}
 		else
 		{
-            Debug.LogWarning($"NetworkManager {Instance.name} already exists and is a singleton! NetworkManager {name} will be disabled.");
-            this.enabled = false;
+			Debug.LogWarning($"NetworkManager {Instance.name} already exists and is a singleton! NetworkManager {name} will be disabled.");
+			this.enabled = false;
 		}
-        DontDestroyOnLoad(this.gameObject);
-    }
+		DontDestroyOnLoad(this.gameObject);
+	}
 
 	private void Start()
 	{
@@ -52,12 +55,58 @@ public class NetworkManager : MonoBehaviour
 			var ansBody = ea.Body;
 			var ansMessage = Encoding.UTF8.GetString(ansBody);
 			Debug.Log($" [x] Received {ansMessage}");
-			Debug.Log(" [x] Done");
 			MainMenuController.Instance.AbortLoginTimeout();
-			Debug.Log(" [x] Here");
-			MainMenuController.Instance.SuccessNextFrame($" [x] Received {ansMessage}");
+			MainMenuController.Instance.AbortRegisterTimeout();
+			//MainMenuController.Instance.SuccessNextFrame($" [x] Received {ansMessage}");
+			m_DoConsumeEvalNextFrame = true;
+			m_ConsumeEvalMessage = ansMessage;
+			Debug.Log(" [x] Done");
 		};
 		channel.BasicConsume(queue: "amq.rabbitmq.reply-to", noAck: true, consumer: consumer);
+	}
+
+	private void Update()
+	{
+		if (m_DoConsumeEvalNextFrame)
+		{
+			BackendResponse response = JsonUtility.FromJson<BackendResponse>(m_ConsumeEvalMessage);
+
+			if (response.status.Equals("FAILURE"))
+			{
+				MainMenuController.Instance.Error("Celery Error, see console");
+			}
+			else if (response.status.Equals("SUCCESS"))
+			{
+				if (response.result.task.Equals("login"))
+				{
+					if (response.result.status.Equals("success"))
+					{
+						//log in successful, show the userID in the happy box
+						MainMenuController.Instance.Success($"Logged in! UserID: {response.result.userid}");
+					}
+					else
+					{
+						//log in unsuccessful, show error in sad box
+						MainMenuController.Instance.Error(response.result.error);
+					}
+				}
+				else if (response.result.task.Equals("register"))
+				{
+					if (response.result.status.Equals("success"))
+					{
+						//resgister successful, show the box
+						MainMenuController.Instance.RegisterCompleteWindow();
+					}
+					else
+					{
+						//register unsuccessful, show error in sad box
+						MainMenuController.Instance.Error(response.result.error);
+					}
+				}
+			}
+
+			m_DoConsumeEvalNextFrame = false;
+		}
 	}
 
 
@@ -87,7 +136,7 @@ public class NetworkManager : MonoBehaviour
 		string message = sr.ReadToEnd();
 
 		var body = Encoding.UTF8.GetBytes(message);
-		
+
 		channel.BasicPublish(exchange: "",
 						 routingKey: "celery",
 						 basicProperties: props,
@@ -129,3 +178,4 @@ public class NetworkManager : MonoBehaviour
 		MainMenuController.Instance.StartRegisterTimeoutWindow();
 	}
 }
+

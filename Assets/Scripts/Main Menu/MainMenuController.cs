@@ -26,6 +26,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     private GameObject successPanel;
     [SerializeField]
+    private GameObject registerSuccessPanel;
+    [SerializeField]
     private GameObject loadingPanel;
 
     private Vector3 spawnAreaLeft;
@@ -107,7 +109,8 @@ public class MainMenuController : MonoBehaviour
 	{
         errorPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
         errorPanel.SetActive(true);
-	}
+        CloseLoadingWindow();
+    }
 
     public void LoadingWindow(string message)
 	{
@@ -161,18 +164,14 @@ public class MainMenuController : MonoBehaviour
 
     public void Success(string message)
 	{
-        Debug.Log("what");
-        Debug.Log(successPanel.activeSelf);
         if (!successPanel.activeSelf)
         {
-            Debug.Log("what2");
             successPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
             CloseLoadingWindow();
             successPanel.SetActive(true);
         }
         else
         {
-            Debug.Log("what3");
             Debug.LogWarning($"Tried to open success window for message \"{message}\", but it is already open for message \"{successPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text}\"!");
         }
     }
@@ -181,5 +180,35 @@ public class MainMenuController : MonoBehaviour
     {
         m_DoSuccessNextFrame = true;
         m_NextSuccessMessage = message;
+    }
+
+    public void RegisterCompleteWindow()
+    {
+        if (!registerSuccessPanel.activeSelf)
+        {
+            registerSuccessPanel.SetActive(true);
+            CloseLoadingWindow();
+        }
+        else
+        {
+            Debug.LogWarning("Tried to open register success window, but it is already open!");
+        }
+    }
+
+    public void CloseRegisterCompleteWindow()
+    {
+        if (!registerSuccessPanel.activeSelf)
+        {
+            return;
+        }
+        ClickToClosePanel click = registerSuccessPanel.GetComponent<ClickToClosePanel>();
+        if (click)
+        {
+            click.ClosePanel();
+        }
+        else
+        {
+            registerSuccessPanel.SetActive(false);
+        }
     }
 }
