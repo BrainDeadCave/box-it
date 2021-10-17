@@ -22,7 +22,7 @@ public class ClickToClosePanel : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-		if(!goingOut && Input.GetMouseButtonDown(0)){
+		if(canClickToClose && !goingOut && Input.GetMouseButtonDown(0)){
             ClosePanel();
 		}
 		else if(goingOut)
