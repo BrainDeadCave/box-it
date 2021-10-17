@@ -13,6 +13,15 @@ public class MainMenuController : MonoBehaviour
     private float spawnOffsetY = 0f;
 
     [SerializeField]
+    private float loginTimeoutTime = 10f;
+    private float m_RemainingLoginTimeoutTime;
+    private bool m_InLoginTimeoutWindow;
+    [SerializeField]
+    private float registerTimeoutTime = 10f;
+    private float m_RemainingRegisterTimeoutTime;
+    private bool m_InRegisterTimeoutWindow;
+
+    [SerializeField]
     private GameObject errorPanel;
     private Animator errorPanelAnimator;
     [SerializeField]
@@ -44,6 +53,8 @@ public class MainMenuController : MonoBehaviour
         m_MainCamera = Camera.main;
         errorPanelAnimator = errorPanel.GetComponent<Animator>();
         loadingPanelAnimator = loadingPanel.GetComponent<Animator>();
+        m_RemainingLoginTimeoutTime = loginTimeoutTime;
+        m_InLoginTimeoutWindow = false;
     }
 	// Update is called once per frame
 	void Update()
@@ -62,6 +73,27 @@ public class MainMenuController : MonoBehaviour
 		{
             m_TimeUntilNextBox -= Time.deltaTime;
 		}
+
+        if(m_InLoginTimeoutWindow && m_RemainingLoginTimeoutTime <= 0f)
+		{
+            CloseLoadingWindow();
+            Error("Login timed out");
+            m_InLoginTimeoutWindow = false;
+        }
+		else if(m_InLoginTimeoutWindow)
+		{
+            m_RemainingLoginTimeoutTime -= Time.deltaTime;
+        }
+        else if (m_InRegisterTimeoutWindow && m_RemainingRegisterTimeoutTime <= 0f)
+        {
+            CloseLoadingWindow();
+            Error("Registration timed out");
+            m_InRegisterTimeoutWindow = false;
+        }
+        else if (m_InRegisterTimeoutWindow)
+        {
+            m_RemainingRegisterTimeoutTime -= Time.deltaTime;
+        }
     }
 
     public void Error(string message)
@@ -94,5 +126,25 @@ public class MainMenuController : MonoBehaviour
 		{
             loadingPanel.SetActive(false);
 		}
+    }
+
+    public void StartLoginTimeoutWindow()
+	{
+        m_InLoginTimeoutWindow = true;
+        m_RemainingLoginTimeoutTime = loginTimeoutTime;
+    }
+    public void AbortLoginTimeout()
+    {
+        m_InLoginTimeoutWindow = false;
+    }
+
+    public void StartRegisterTimeoutWindow()
+	{
+        m_InRegisterTimeoutWindow = true;
+        m_RemainingRegisterTimeoutTime = registerTimeoutTime;
+    }
+    public void AbortRegisterTimeout()
+    {
+        m_InRegisterTimeoutWindow = false;
     }
 }

@@ -5937,7 +5937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &277741348
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11851,6 +11851,8 @@ MonoBehaviour:
   boxesPerSecond: 3
   boxPrefabToSpawn: {fileID: 476573116245072075, guid: 80f5de34cb742ff469b56905686d8ba4, type: 3}
   spawnOffsetY: 1
+  loginTimeoutTime: 10
+  registerTimeoutTime: 10
   errorPanel: {fileID: 21963007}
   loadingPanel: {fileID: 420796021}
 --- !u!4 &838175773
@@ -19169,7 +19171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2127282492
 RectTransform:
   m_ObjectHideFlags: 0
