@@ -90,4 +90,37 @@ public class NetworkManager : MonoBehaviour
 						 basicProperties: props,
 						 body: body);
 	}
+
+	public void Register(string username, string password)
+	{
+		IDictionary<string, object> headers = new Dictionary<string, object>();
+		headers.Add("task", "tasks.register");
+		Guid id = Guid.NewGuid();
+		headers.Add("id", id.ToString());
+
+		IBasicProperties props = channel.CreateBasicProperties();
+		props.Headers = headers;
+		props.CorrelationId = (string)headers["id"];
+		props.ContentEncoding = "utf-8";
+		props.ContentType = "application/json";
+		props.ReplyTo = "amq.rabbitmq.reply-to";
+
+		object[] taskArgs = new object[] { username, password };
+
+		object[] arguments = new object[] { taskArgs, new object(), new object() };
+
+		MemoryStream stream = new MemoryStream();
+		DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(object[]));
+		ser.WriteObject(stream, arguments);
+		stream.Position = 0;
+		StreamReader sr = new StreamReader(stream);
+		string message = sr.ReadToEnd();
+
+		var body = Encoding.UTF8.GetBytes(message);
+
+		channel.BasicPublish(exchange: "",
+						 routingKey: "celery",
+						 basicProperties: props,
+						 body: body);
+	}
 }
