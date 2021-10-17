@@ -6,9 +6,9 @@ using UnityEngine;
 public class SignInButton : MonoBehaviour
 {
 	[SerializeField]
-	private TextMeshProUGUI usernameTMPro;
+	private TMP_InputField usernameTMPro;
 	[SerializeField]
-	private TextMeshProUGUI passwordTMPro;
+	private TMP_InputField passwordTMPro;
 
     public void Login()
 	{

@@ -18,6 +18,8 @@ public class NetworkManager : MonoBehaviour
 	private string rmqPassword;
 	[SerializeField]
 	private string rmqHostName;
+	[SerializeField]
+	private string rmqVirtualHost;
 
 	private IModel channel;
 	private void Awake()
@@ -40,6 +42,7 @@ public class NetworkManager : MonoBehaviour
 		factory.HostName = rmqHostName;
 		factory.UserName = rmqUsername;
 		factory.Password = rmqPassword;
+		factory.VirtualHost = rmqVirtualHost;
 		IConnection connection = factory.CreateConnection();
 		channel = connection.CreateModel();
 
@@ -48,8 +51,8 @@ public class NetworkManager : MonoBehaviour
 		{
 			var ansBody = ea.Body;
 			var ansMessage = Encoding.UTF8.GetString(ansBody);
-			Console.WriteLine(" [x] Received {0}", ansMessage);
-			Console.WriteLine(" [x] Done");
+			Debug.Log($" [x] Received {ansMessage}");
+			Debug.Log(" [x] Done");
 		};
 		channel.BasicConsume(queue: "amq.rabbitmq.reply-to", noAck: true, consumer: consumer);
 	}
