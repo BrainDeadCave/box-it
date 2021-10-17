@@ -53,6 +53,9 @@ public class NetworkManager : MonoBehaviour
 			var ansMessage = Encoding.UTF8.GetString(ansBody);
 			Debug.Log($" [x] Received {ansMessage}");
 			Debug.Log(" [x] Done");
+			MainMenuController.Instance.AbortLoginTimeout();
+			Debug.Log(" [x] Here");
+			MainMenuController.Instance.SuccessNextFrame($" [x] Received {ansMessage}");
 		};
 		channel.BasicConsume(queue: "amq.rabbitmq.reply-to", noAck: true, consumer: consumer);
 	}
@@ -89,6 +92,7 @@ public class NetworkManager : MonoBehaviour
 						 routingKey: "celery",
 						 basicProperties: props,
 						 body: body);
+		MainMenuController.Instance.StartLoginTimeoutWindow();
 	}
 
 	public void Register(string username, string password)
@@ -122,5 +126,6 @@ public class NetworkManager : MonoBehaviour
 						 routingKey: "celery",
 						 basicProperties: props,
 						 body: body);
+		MainMenuController.Instance.StartRegisterTimeoutWindow();
 	}
 }

@@ -23,16 +23,19 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField]
     private GameObject errorPanel;
-    private Animator errorPanelAnimator;
+    [SerializeField]
+    private GameObject successPanel;
     [SerializeField]
     private GameObject loadingPanel;
-    private Animator loadingPanelAnimator;
 
     private Vector3 spawnAreaLeft;
     private Vector3 spawnAreaRight;
 
     private float m_TimeUntilNextBox = 0f;
     private Camera m_MainCamera;
+
+    private bool m_DoSuccessNextFrame = false;
+    private string m_NextSuccessMessage = "Init";
 
     public static MainMenuController Instance;
 
@@ -51,8 +54,6 @@ public class MainMenuController : MonoBehaviour
         spawnAreaLeft = new Vector3(0, Screen.height + 1.5f, 0);
         spawnAreaRight = new Vector3(Screen.width, Screen.height + 1.5f, 0);
         m_MainCamera = Camera.main;
-        errorPanelAnimator = errorPanel.GetComponent<Animator>();
-        loadingPanelAnimator = loadingPanel.GetComponent<Animator>();
         m_RemainingLoginTimeoutTime = loginTimeoutTime;
         m_InLoginTimeoutWindow = false;
     }
@@ -94,6 +95,12 @@ public class MainMenuController : MonoBehaviour
         {
             m_RemainingRegisterTimeoutTime -= Time.deltaTime;
         }
+
+		if (m_DoSuccessNextFrame)
+		{
+            Success(m_NextSuccessMessage);
+            m_DoSuccessNextFrame = false;
+		}
     }
 
     public void Error(string message)
@@ -117,6 +124,10 @@ public class MainMenuController : MonoBehaviour
 
     public void CloseLoadingWindow()
 	{
+		if (!loadingPanel.activeSelf)
+		{
+            return;
+		}
         ClickToClosePanel click = loadingPanel.GetComponent<ClickToClosePanel>();
 		if (click)
 		{
@@ -146,5 +157,29 @@ public class MainMenuController : MonoBehaviour
     public void AbortRegisterTimeout()
     {
         m_InRegisterTimeoutWindow = false;
+    }
+
+    public void Success(string message)
+	{
+        Debug.Log("what");
+        Debug.Log(successPanel.activeSelf);
+        if (!successPanel.activeSelf)
+        {
+            Debug.Log("what2");
+            successPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
+            CloseLoadingWindow();
+            successPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("what3");
+            Debug.LogWarning($"Tried to open success window for message \"{message}\", but it is already open for message \"{successPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text}\"!");
+        }
+    }
+
+    public void SuccessNextFrame(string message)
+    {
+        m_DoSuccessNextFrame = true;
+        m_NextSuccessMessage = message;
     }
 }
