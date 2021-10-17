@@ -5,8 +5,9 @@ using UnityEngine;
 public class ClickToClosePanel : MonoBehaviour
 {
     public bool hideOnAnimComplete = true;
+    public bool canClickToClose = true;
+
     private Animator animator;
-    [SerializeField]
     private bool goingOut;
     void Awake()
     {

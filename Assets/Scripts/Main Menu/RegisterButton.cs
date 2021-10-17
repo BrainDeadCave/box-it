@@ -17,10 +17,12 @@ public class RegisterButton : MonoBehaviour
 			NetworkManager.Instance.Register(usernameTMPro.text, passwordTMPro.text);
 			Debug.Log($"Attempting Register. UN: {usernameTMPro.text}  PW: {passwordTMPro.text}");
 			//Show spinny boi
+			MainMenuController.Instance.LoadingWindow("Registering...");
 		}
 		else
 		{
 			//Show error
+			MainMenuController.Instance.Error("Please fill in both boxes!");
 		}
 	}
 }

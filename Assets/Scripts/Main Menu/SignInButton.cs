@@ -17,10 +17,11 @@ public class SignInButton : MonoBehaviour
 			NetworkManager.Instance.Login(usernameTMPro.text, passwordTMPro.text);
 			Debug.Log($"Attempting sign in. UN: {usernameTMPro.text}  PW: {passwordTMPro.text}");
 			//Show spinny boi
+			MainMenuController.Instance.LoadingWindow("Signing in...");
 		}
 		else 
-		{ 
-			//Show error
+		{
+			MainMenuController.Instance.Error("Please fill in both boxes!");
 		}
 	}
 }
