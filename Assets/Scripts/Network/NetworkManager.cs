@@ -45,7 +45,7 @@ public class NetworkManager : MonoBehaviour
 		factory.HostName = rmqHostName;
 		factory.UserName = rmqUsername;
 		factory.Password = rmqPassword;
-		factory.VirtualHost = rmqVirtualHost;
+		//factory.VirtualHost = rmqVirtualHost;
 		IConnection connection = factory.CreateConnection();
 		channel = connection.CreateModel();
 

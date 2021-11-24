@@ -21,6 +21,17 @@
             "Password": "test",
             "ReconnectInterval": 5,
             "RequestedHeartBeat": 30
+        },
+        {
+            "Name": "my_vm2",
+            "Host": "10.208.72.38",
+            "AmqpPort": 5672,
+            "WebPort": 15672,
+            "VirtualHost": "test",
+            "Username": "test",
+            "Password": "test",
+            "ReconnectInterval": 5,
+            "RequestedHeartBeat": 30
         }
     ]
 }

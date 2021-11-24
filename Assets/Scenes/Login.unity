@@ -18897,7 +18897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rmqUsername: test
   rmqPassword: test
-  rmqHostName: 10.208.72.38
+  rmqHostName: 10.147.18.48
   rmqVirtualHost: test
 --- !u!4 &2054664618
 Transform:
