@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class MainMenuController : MonoBehaviour
     private GameObject registerSuccessPanel;
     [SerializeField]
     private GameObject loadingPanel;
+    [SerializeField]
+    private GameObject connectErrorPanel;
 
     private Vector3 spawnAreaLeft;
     private Vector3 spawnAreaRight;
@@ -38,6 +41,9 @@ public class MainMenuController : MonoBehaviour
 
     private bool m_DoSuccessNextFrame = false;
     private string m_NextSuccessMessage = "Init";
+
+    [SerializeField]
+    private GameObject networkManagerPrefab;
 
     public static MainMenuController Instance;
 
@@ -58,6 +64,14 @@ public class MainMenuController : MonoBehaviour
         m_MainCamera = Camera.main;
         m_RemainingLoginTimeoutTime = loginTimeoutTime;
         m_InLoginTimeoutWindow = false;
+		if (!NetworkManager.Instance)
+		{
+            Instantiate(networkManagerPrefab, null);
+		}
+		else
+		{
+            NetworkManager.Instance.Restart();
+        }
     }
 	// Update is called once per frame
 	void Update()
@@ -211,4 +225,21 @@ public class MainMenuController : MonoBehaviour
             registerSuccessPanel.SetActive(false);
         }
     }
+
+    public void ConnectionErrorWindow()
+	{
+        if (!connectErrorPanel.activeSelf)
+        {
+            connectErrorPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Tried to open connection error window, but it is already open! How did I mess this up THIS much ;w;");
+        }
+    }
+
+    public void ResetScene()
+	{
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
 }
