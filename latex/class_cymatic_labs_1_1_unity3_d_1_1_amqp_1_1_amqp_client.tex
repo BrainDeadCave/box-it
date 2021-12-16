@@ -1,0 +1,1289 @@
+\hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client}{}\doxysection{Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client Class Reference}
+\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client}\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+
+
+AMQP class used to manage message broker connections and events.  
+
+
+Inheritance diagram for Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9952de3cc6371a313e9aeb1cf0caf156}{Connect\+To\+Host}} ()
+\begin{DoxyCompactList}\small\item\em Connects to the messaging broker. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a1d594b022b0a0f3dc9c486b585660571}{Disconnect\+From\+Host}} ()
+\begin{DoxyCompactList}\small\item\em Disconnects from the messaging broker. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a828a8270ba7a773113a5b770718d29eb}{Reset\+Connection\+To\+Host}} ()
+\begin{DoxyCompactList}\small\item\em Resets the connection when it has ended up in an aborted state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a0eb99521108102a987ffcc55c29fb15a}{Subscribe\+To\+Exchange}} (Amqp\+Exchange\+Subscription subscription)
+\begin{DoxyCompactList}\small\item\em Subscribes to a given exchange. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9d8e3de2432bcf3f4bc43179762cb77b}{Subscribe\+To\+Queue}} (Amqp\+Queue\+Subscription subscription)
+\begin{DoxyCompactList}\small\item\em Subscribes to a given exchange. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6ed26bdd79cc3c48f05ae7aa99744d68}{Unsubscribe\+From\+Exchange}} (Amqp\+Exchange\+Subscription subscription)
+\begin{DoxyCompactList}\small\item\em unsubscribes from a given exchange. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa5c9d3e05c7cc2cfa116662cd0362642}{Unsubscribe\+From\+Queue}} (Amqp\+Queue\+Subscription subscription)
+\begin{DoxyCompactList}\small\item\em unsubscribes from a given queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7261d2dc2edc1473115f641f392586f1}{Publish\+To\+Exchange}} (string exchange\+Name, string routing\+Key, string message, IAmqp\+Message\+Properties properties=null, bool mandatory=false, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em Publishes a message on a given exchange. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a116f93b90dfabd2dd289cfcde5880641}{Publish\+To\+Exchange}} (string exchange\+Name, string routing\+Key, byte\mbox{[}$\,$\mbox{]} message, IAmqp\+Message\+Properties properties=null, bool mandatory=false, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em Publishes a message on a given exchange. \end{DoxyCompactList}\item 
+Exception \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa0bf48b223acf83f6de1f2d993e0bc80}{Declare\+Exchange\+On\+Host}} (string name, Amqp\+Exchange\+Types type, bool durable=true, bool auto\+Delete=false, IDictionary$<$ string, object $>$ args=null)
+\begin{DoxyCompactList}\small\item\em Declares an exchange on the broker for the current virtual host. \end{DoxyCompactList}\item 
+Exception \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad26bcd4f9f42f89ee66e09f2366edab5}{Delete\+Exchange\+On\+Host}} (string name, bool if\+Unused=false)
+\begin{DoxyCompactList}\small\item\em Declares an exchange on the broker for the current virtual host. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a766e87154e8deb4245a54fe7a179b328}{Exchange\+Exists\+On\+Host}} (string name, string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets whether or not an exchange by a given name exists. \end{DoxyCompactList}\item 
+Amqp\+Exchange\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a561a0499749740792d81751363a18d0b}{Get\+Exchange\+List}} (string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets a list of exchanges for the current connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_afefd2d367d17d1c28520bb696886f29e}{Get\+Exchange\+List\+Async}} (Exchange\+List\+Event\+Handler callback, string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets a list of exchanges for the current connection using an asynchronous request. \end{DoxyCompactList}\item 
+Exception \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aefbc3a27fa879a8b6c91ea4d79ca8031}{Declare\+Queue\+On\+Host}} (string name, bool durable=true, bool auto\+Delete=false, bool exclusive=false, IDictionary$<$ string, object $>$ args=null)
+\begin{DoxyCompactList}\small\item\em Declares a queue on the broker for the current virtual host. \end{DoxyCompactList}\item 
+Exception \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aba7142f6ca85cb336f836b1fee0bfcb8}{Delete\+Queue\+On\+Host}} (string name, bool if\+Unused=false, bool if\+Empty=false)
+\begin{DoxyCompactList}\small\item\em Declares a queue on the broker for the current virtual host. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_abf2c69d5232769672dea79f8c4908fc1}{Queue\+Exists\+On\+Host}} (string name, string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets whether or not a queue by a given name exists. \end{DoxyCompactList}\item 
+Amqp\+Queue\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5bbd03305ff16141fadab0625b6891f3}{Get\+Queue\+List}} (string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets a list of queues for the current connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a441ca0c606295a7e2b2fc554fbd93a38}{Get\+Queue\+List\+Async}} (Queue\+List\+Event\+Handler callback, string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets a list of queues for the current connection using an asynchronous request. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_add4e9f29c422416f0e45babaa114c7cc}{Log\+To\+Console}} (object value)
+\begin{DoxyCompactList}\small\item\em Logs a value to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad286171b7b2618aa359596d824fab70d}{Log\+To\+Console}} (string text, params object\mbox{[}$\,$\mbox{]} values)
+\begin{DoxyCompactList}\small\item\em Logs a value to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9f194b78985e1178ade2963a5a613dc2}{Unity\+Event\+Debug\+Exhange\+Message\+Handler}} (Amqp\+Exchange\+Subscription subscription, IAmqp\+Received\+Message message)
+\begin{DoxyCompactList}\small\item\em A default message received handler useful for debugging. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6a64b7504099c85b5e3860a7ad419a02}{Unity\+Event\+Debug\+Queue\+Message\+Handler}} (Amqp\+Queue\+Subscription subscription, IAmqp\+Received\+Message message)
+\begin{DoxyCompactList}\small\item\em A default message received handler useful for debugging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_connection}{Amqp\+Connection}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_afdb8f4c7089262a687d8340cd23cc1e1}{Get\+Connections}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current list of connections. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_connection}{Amqp\+Connection}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a31754c6012e37953ab99d7ab69cebe7d}{Get\+Connection}} (string name)
+\begin{DoxyCompactList}\small\item\em Gets a connection by name if it exists. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a1fd4078188d7d0d0db05247e666f43e0}{Connect}} ()
+\begin{DoxyCompactList}\small\item\em Connects to the messaging broker. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7214128df930ecc64bd204fbf96663a0}{Disconnect}} ()
+\begin{DoxyCompactList}\small\item\em Disconnects from the messaging broker. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aabf44fd4b09770a9b5f41e65daca90e1}{Reset\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Resets the connection when it has ended up in an aborted state. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6f17879f675d0aab1c9282e61917ea09}{Subscribe}} (Amqp\+Exchange\+Subscription subscription)
+\begin{DoxyCompactList}\small\item\em Subscribes to a given exchange. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ac261ce030f8fea2eff795f4bf2e715ee}{Subscribe}} (Amqp\+Queue\+Subscription subscription)
+\begin{DoxyCompactList}\small\item\em Subscribes to a given queue. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6df63daa66b9c546f3e1e2d9b5422d46}{Unsubscribe}} (Amqp\+Exchange\+Subscription subscription)
+\begin{DoxyCompactList}\small\item\em unsubscribes from a given exchange. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a3c8849c4643c70d848ceb354d130deca}{Unsubscribe}} (Amqp\+Queue\+Subscription subscription)
+\begin{DoxyCompactList}\small\item\em unsubscribes from a given queue. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aea2646b9ca63af13db91ed236a1aaa59}{Publish}} (string exchange\+Name, string routing\+Key, string message, IAmqp\+Message\+Properties properties=null, bool mandatory=false, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em Publishes a message on a given exchange. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a4197bb2c38cd094007258641c8979712}{Publish}} (string exchange\+Name, string routing\+Key, byte\mbox{[}$\,$\mbox{]} message, IAmqp\+Message\+Properties properties=null, bool mandatory=false, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em Publishes a message on a given exchange. \end{DoxyCompactList}\item 
+static Exception \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad9cb2ea83b6e5597fa1fbb16b6c6e6ca}{Declare\+Exchange}} (string name, Amqp\+Exchange\+Types type, bool durable=true, bool auto\+Delete=false, IDictionary$<$ string, object $>$ args=null)
+\begin{DoxyCompactList}\small\item\em Declares an exchange on the broker for the current virtual host. \end{DoxyCompactList}\item 
+static Exception \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ac869fb3369040430fb6ad4620ff20353}{Delete\+Exchange}} (string name, bool if\+Unused=false)
+\begin{DoxyCompactList}\small\item\em Declares an exchange on the broker for the current virtual host. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a0b4d44853a5b7d2ae82ea10054617e2c}{Exchange\+Exists}} (string name, string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets whether or not an exchange by a given name exists. \end{DoxyCompactList}\item 
+static Amqp\+Exchange\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa95ddd9781f652e48d00d99a1979804a}{Get\+Exchanges}} (string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets a list of exchanges for the current connection. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a52517fc424736068bbb7ea659ac08cf9}{Get\+Exchanges\+Async}} (Exchange\+List\+Event\+Handler callback, string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets a list of exchanges for the current connection using an asynchronous request. \end{DoxyCompactList}\item 
+static Exception \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad094a15c05b20129879ddb02da65bedd}{Declare\+Queue}} (string name, bool durable=true, bool auto\+Delete=false, bool exclusive=false, IDictionary$<$ string, object $>$ args=null)
+\begin{DoxyCompactList}\small\item\em Declares a queue on the broker for the current virtual host. \end{DoxyCompactList}\item 
+static Exception \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7fa472b55024f943cf55f309ae6fe20c}{Delete\+Queue}} (string name, bool if\+Unused=false, bool if\+Empty=false)
+\begin{DoxyCompactList}\small\item\em Declares a queue on the broker for the current virtual host. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad60a1e3b679ddd91b2f016af5a043a49}{Queue\+Exists}} (string name, string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets whether or not a queue by a given name exists. \end{DoxyCompactList}\item 
+static Amqp\+Queue\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a358014f94afb234168028a9f806a7cb3}{Get\+Queues}} (string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets a list of queues for the current connection. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5da1faeb3ac2e2d9b982c43f2c7f3d5f}{Get\+Queues\+Async}} (Queue\+List\+Event\+Handler callback, string virtual\+Host=null)
+\begin{DoxyCompactList}\small\item\em Gets a list of queues for the current connection using an asynchronous request. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a3b2f2b0c4f1b83c1f8f2c001d404a40c}{Log}} (object value)
+\item 
+static void \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a58fd4ec567f370043f027e8cea417725}{Log}} (string text, params object\mbox{[}$\,$\mbox{]} values)
+\begin{DoxyCompactList}\small\item\em Logs a value to the console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5e7cf14a91dce92d8230528f78a31413}{Connection}}
+\begin{DoxyCompactList}\small\item\em The name of the connection to use. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a2c082a91d4712bf7d571fc4fa0d6b996}{Connect\+On\+Start}} = true
+\begin{DoxyCompactList}\small\item\em Whether or not to connect to the messaging broker on start. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5e189eca991b0a81fc064801db9291d4}{Relaxed\+Ssl\+Validation}} = false
+\begin{DoxyCompactList}\small\item\em Whether or not to use relaxed SSL certificate validation for the broker. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a499ec1cfe9783f32d417d3392bb68be0}{Write\+To\+Console}} = false
+\begin{DoxyCompactList}\small\item\em Whether or not AMQP events will be written to the AMQP console. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_unity_amqp_exchange_subscription}{Unity\+Amqp\+Exchange\+Subscription}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a54d2373dc8f3e4f1d04ece384ae28a3d}{Exchange\+Subscriptions}}
+\begin{DoxyCompactList}\small\item\em A list of exchange subscriptions to subscribe to when connected. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_unity_amqp_queue_subscription}{Unity\+Amqp\+Queue\+Subscription}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_acad3e415fe70dcf91d71eb06ad1d15d3}{Queue\+Subscriptions}}
+\begin{DoxyCompactList}\small\item\em A list of queue subscriptions to subscribe to when connected. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a88e6488e75b88e1cfd72bb54cccabc9c}{On\+Connected}}
+\begin{DoxyCompactList}\small\item\em Occurs when the client has connected to the AMQP message broker. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a2fa2ea530ca3a8caefd421683b8e72f4}{On\+Disconnecting}}
+\begin{DoxyCompactList}\small\item\em Occurs when the client has begun disconnecting from the AMQP message broker, but before it has finished. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a42ce3022853e712700a2cc4a3deea88c}{On\+Disconnected}}
+\begin{DoxyCompactList}\small\item\em Occurs when the client has disconnected from the AMQP message broker. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a646893f6afbaa3d66997969a0783d938}{On\+Blocked}}
+\begin{DoxyCompactList}\small\item\em Occurs when the client has been blocked by the AMQP message broker. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a4cd47befa6f3bc0ebcbecd22e330860a}{On\+Reconnecting}}
+\begin{DoxyCompactList}\small\item\em Occurs when the client has started reconnecting to the AMQP message broker. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad155cf63b26dea2386261320c97a6dc9}{On\+Connection\+Aborted}}
+\begin{DoxyCompactList}\small\item\em Occurs when the client connection has aborted and must be manually reset. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_exception_unity_event}{Exception\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa26bb544c870f4f98da3c6dc07a8f9e0}{On\+Connection\+Error}}
+\begin{DoxyCompactList}\small\item\em Occurs when there is a connection error. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_exchange_subscription_unity_event}{Amqp\+Exchange\+Subscription\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad0bca0cc588dc14d56fe0fd791b47349}{On\+Subscribed\+To\+Exchange}}
+\begin{DoxyCompactList}\small\item\em Occurs when the client subscribes to an exchange. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_exchange_subscription_unity_event}{Amqp\+Exchange\+Subscription\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ae3b6b1b540f2ec7ee3298bd65b3c0795}{On\+Unsubscribed\+From\+Exchange}}
+\begin{DoxyCompactList}\small\item\em Occurs when the client unsubscribes from an exchange. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_queue_subscription_unity_event}{Amqp\+Queue\+Subscription\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7ef79654e58d3394a43fef4fa265cd43}{On\+Subscribed\+To\+Queue}}
+\begin{DoxyCompactList}\small\item\em Occurs when the client subscribes to a queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_queue_subscription_unity_event}{Amqp\+Queue\+Subscription\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a53b2c7861b2e739e8ad5c02903345478}{On\+Unsubscribed\+From\+Queue}}
+\begin{DoxyCompactList}\small\item\em Occurs when the client unsubscribes from a queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_exception_unity_event}{Exception\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a2387c6d7b9a54bbb4d825383216745da}{On\+Exchange\+Subscribe\+Error}}
+\begin{DoxyCompactList}\small\item\em Occurs when there is an error subscribing to an exchange. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_exception_unity_event}{Exception\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9053782e545d1a1e6f84891dee9d7e83}{On\+Exchange\+Unsubscribe\+Error}}
+\begin{DoxyCompactList}\small\item\em Occurs when there is an error subscribing to a queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_exception_unity_event}{Exception\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad494c12986d04aa1ea1cd9928295e873}{On\+Queue\+Subscribe\+Error}}
+\begin{DoxyCompactList}\small\item\em Occurs when there is an error unsubscribing from an exchange. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_exception_unity_event}{Exception\+Unity\+Event}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a03346c86fe27c35f3d1d4b25b1e8ed0d}{On\+Queue\+Unsubscribe\+Error}}
+\begin{DoxyCompactList}\small\item\em Occurs when there is an error unsubscribing from a queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client}{Amqp\+Client}} \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9b025d27ba743731c0b9947e70a57d36}{Instance}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the singleton instance of the class. \end{DoxyCompactList}\item 
+bool? \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a1046fbf1780b946ab146a1a7509cd901}{Is\+Connected}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets whether or not the amqp messaging system is currently connected or not. \end{DoxyCompactList}\item 
+uint? \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a809409fe5142eb7a4b139d9a6291261d}{Reconnect\+Retry\+Limit}}\hspace{0.3cm}{\ttfamily  \mbox{[}getset\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the maximum number of times the client will attempt to reconnect to the host before aborting. \end{DoxyCompactList}\item 
+byte? \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a050c3db8ef257eb30aad873409e6b1df}{Subscribe\+Retry\+Limit}}\hspace{0.3cm}{\ttfamily  \mbox{[}getset\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the maximum number of failed subscriptions the client will tolerate before preventing connection to the host. \end{DoxyCompactList}\item 
+IAmqp\+Broker\+Connection \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ac86d5242872b37fe0b279bd4d3a6d969}{Broker\+Connection}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The underlying broker connection used by the client. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad84625710fd560c8f754c09ff7cff2c1}{Configuration\+Filename}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the file name for the AMQP connections data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+AMQP class used to manage message broker connections and events. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a1fd4078188d7d0d0db05247e666f43e0}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a1fd4078188d7d0d0db05247e666f43e0}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Connect@{Connect}}
+\index{Connect@{Connect}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Connect()}{Connect()}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Connects to the messaging broker. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9952de3cc6371a313e9aeb1cf0caf156}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9952de3cc6371a313e9aeb1cf0caf156}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!ConnectToHost@{ConnectToHost}}
+\index{ConnectToHost@{ConnectToHost}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{ConnectToHost()}{ConnectToHost()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Connect\+To\+Host (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Connects to the messaging broker. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad9cb2ea83b6e5597fa1fbb16b6c6e6ca}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad9cb2ea83b6e5597fa1fbb16b6c6e6ca}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!DeclareExchange@{DeclareExchange}}
+\index{DeclareExchange@{DeclareExchange}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{DeclareExchange()}{DeclareExchange()}}
+{\footnotesize\ttfamily static Exception Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Declare\+Exchange (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{Amqp\+Exchange\+Types}]{type,  }\item[{bool}]{durable = {\ttfamily true},  }\item[{bool}]{auto\+Delete = {\ttfamily false},  }\item[{IDictionary$<$ string, object $>$}]{args = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Declares an exchange on the broker for the current virtual host. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the exchange to declare.\\
+\hline
+{\em type} & The type of exchange to declare.\\
+\hline
+{\em durable} & Whether or not the exchange should be durable.\\
+\hline
+{\em auto\+Delete} & Whether or not the exchange will have auto-\/delete enabled.\\
+\hline
+{\em args} & Optional exchange arguments.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Exception if one occurred during the operation, otherwise NULL.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa0bf48b223acf83f6de1f2d993e0bc80}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa0bf48b223acf83f6de1f2d993e0bc80}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!DeclareExchangeOnHost@{DeclareExchangeOnHost}}
+\index{DeclareExchangeOnHost@{DeclareExchangeOnHost}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{DeclareExchangeOnHost()}{DeclareExchangeOnHost()}}
+{\footnotesize\ttfamily Exception Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Declare\+Exchange\+On\+Host (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{Amqp\+Exchange\+Types}]{type,  }\item[{bool}]{durable = {\ttfamily true},  }\item[{bool}]{auto\+Delete = {\ttfamily false},  }\item[{IDictionary$<$ string, object $>$}]{args = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Declares an exchange on the broker for the current virtual host. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the exchange to declare.\\
+\hline
+{\em type} & The type of exchange to declare.\\
+\hline
+{\em durable} & Whether or not the exchange should be durable.\\
+\hline
+{\em auto\+Delete} & Whether or not the exchange will have auto-\/delete enabled.\\
+\hline
+{\em args} & Optional exchange arguments.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Exception if one occurred during the operation, otherwise NULL.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad094a15c05b20129879ddb02da65bedd}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad094a15c05b20129879ddb02da65bedd}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!DeclareQueue@{DeclareQueue}}
+\index{DeclareQueue@{DeclareQueue}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{DeclareQueue()}{DeclareQueue()}}
+{\footnotesize\ttfamily static Exception Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Declare\+Queue (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{bool}]{durable = {\ttfamily true},  }\item[{bool}]{auto\+Delete = {\ttfamily false},  }\item[{bool}]{exclusive = {\ttfamily false},  }\item[{IDictionary$<$ string, object $>$}]{args = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Declares a queue on the broker for the current virtual host. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the queue to declare.\\
+\hline
+{\em durable} & Whether or not the queue should be durable.\\
+\hline
+{\em auto\+Delete} & Whether or not the queue will have auto-\/delete enabled.\\
+\hline
+{\em exclusive} & Whether or not the queue is exclusive.\\
+\hline
+{\em args} & Optional exchange arguments.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Exception if one occurred during the operation, otherwise NULL.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aefbc3a27fa879a8b6c91ea4d79ca8031}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aefbc3a27fa879a8b6c91ea4d79ca8031}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!DeclareQueueOnHost@{DeclareQueueOnHost}}
+\index{DeclareQueueOnHost@{DeclareQueueOnHost}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{DeclareQueueOnHost()}{DeclareQueueOnHost()}}
+{\footnotesize\ttfamily Exception Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Declare\+Queue\+On\+Host (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{bool}]{durable = {\ttfamily true},  }\item[{bool}]{auto\+Delete = {\ttfamily false},  }\item[{bool}]{exclusive = {\ttfamily false},  }\item[{IDictionary$<$ string, object $>$}]{args = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Declares a queue on the broker for the current virtual host. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the queue to declare.\\
+\hline
+{\em durable} & Whether or not the queue should be durable.\\
+\hline
+{\em auto\+Delete} & Whether or not the queue will have auto-\/delete enabled.\\
+\hline
+{\em exclusive} & Whether or not the queue is exclusive.\\
+\hline
+{\em args} & Optional exchange arguments.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Exception if one occurred during the operation, otherwise NULL.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ac869fb3369040430fb6ad4620ff20353}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ac869fb3369040430fb6ad4620ff20353}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!DeleteExchange@{DeleteExchange}}
+\index{DeleteExchange@{DeleteExchange}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{DeleteExchange()}{DeleteExchange()}}
+{\footnotesize\ttfamily static Exception Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Delete\+Exchange (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{bool}]{if\+Unused = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Declares an exchange on the broker for the current virtual host. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the exchange to delete\\
+\hline
+{\em if\+Unused} & Only delete the exchange if it is currently unused.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Exception if one occurred during the operation, otherwise NULL.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad26bcd4f9f42f89ee66e09f2366edab5}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad26bcd4f9f42f89ee66e09f2366edab5}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!DeleteExchangeOnHost@{DeleteExchangeOnHost}}
+\index{DeleteExchangeOnHost@{DeleteExchangeOnHost}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{DeleteExchangeOnHost()}{DeleteExchangeOnHost()}}
+{\footnotesize\ttfamily Exception Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Delete\+Exchange\+On\+Host (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{bool}]{if\+Unused = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Declares an exchange on the broker for the current virtual host. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the exchange to delete\\
+\hline
+{\em if\+Unused} & Only delete the exchange if it is currently unused.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Exception if one occurred during the operation, otherwise NULL.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7fa472b55024f943cf55f309ae6fe20c}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7fa472b55024f943cf55f309ae6fe20c}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!DeleteQueue@{DeleteQueue}}
+\index{DeleteQueue@{DeleteQueue}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{DeleteQueue()}{DeleteQueue()}}
+{\footnotesize\ttfamily static Exception Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Delete\+Queue (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{bool}]{if\+Unused = {\ttfamily false},  }\item[{bool}]{if\+Empty = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Declares a queue on the broker for the current virtual host. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the queue to delete\\
+\hline
+{\em if\+Unused} & Only delete the queue if it is currently unused.\\
+\hline
+{\em if\+Empty} & Only delete the queue if it is empty.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Exception if one occurred during the operation, otherwise NULL.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aba7142f6ca85cb336f836b1fee0bfcb8}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aba7142f6ca85cb336f836b1fee0bfcb8}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!DeleteQueueOnHost@{DeleteQueueOnHost}}
+\index{DeleteQueueOnHost@{DeleteQueueOnHost}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{DeleteQueueOnHost()}{DeleteQueueOnHost()}}
+{\footnotesize\ttfamily Exception Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Delete\+Queue\+On\+Host (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{bool}]{if\+Unused = {\ttfamily false},  }\item[{bool}]{if\+Empty = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Declares a queue on the broker for the current virtual host. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the queue to delete\\
+\hline
+{\em if\+Unused} & Only delete the queue if it is currently unused.\\
+\hline
+{\em if\+Empty} & Only delete the queue if it is empty.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Exception if one occurred during the operation, otherwise NULL.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7214128df930ecc64bd204fbf96663a0}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7214128df930ecc64bd204fbf96663a0}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Disconnect@{Disconnect}}
+\index{Disconnect@{Disconnect}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Disconnect()}{Disconnect()}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Disconnects from the messaging broker. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a1d594b022b0a0f3dc9c486b585660571}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a1d594b022b0a0f3dc9c486b585660571}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!DisconnectFromHost@{DisconnectFromHost}}
+\index{DisconnectFromHost@{DisconnectFromHost}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{DisconnectFromHost()}{DisconnectFromHost()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Disconnect\+From\+Host (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Disconnects from the messaging broker. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a0b4d44853a5b7d2ae82ea10054617e2c}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a0b4d44853a5b7d2ae82ea10054617e2c}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!ExchangeExists@{ExchangeExists}}
+\index{ExchangeExists@{ExchangeExists}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{ExchangeExists()}{ExchangeExists()}}
+{\footnotesize\ttfamily static bool Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Exchange\+Exists (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets whether or not an exchange by a given name exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the exchange to check for.\\
+\hline
+{\em virtual\+Host} & The optional virtual host to get exchanges for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the exchange exists, False if not.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a766e87154e8deb4245a54fe7a179b328}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a766e87154e8deb4245a54fe7a179b328}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!ExchangeExistsOnHost@{ExchangeExistsOnHost}}
+\index{ExchangeExistsOnHost@{ExchangeExistsOnHost}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{ExchangeExistsOnHost()}{ExchangeExistsOnHost()}}
+{\footnotesize\ttfamily bool Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Exchange\+Exists\+On\+Host (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets whether or not an exchange by a given name exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the exchange to check for.\\
+\hline
+{\em virtual\+Host} & The optional virtual host to get exchanges for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the exchange exists, False if not.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a31754c6012e37953ab99d7ab69cebe7d}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a31754c6012e37953ab99d7ab69cebe7d}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!GetConnection@{GetConnection}}
+\index{GetConnection@{GetConnection}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{GetConnection()}{GetConnection()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_connection}{Amqp\+Connection}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Get\+Connection (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets a connection by name if it exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the connection to get.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The connection if it is found, otherwise NULL.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_afdb8f4c7089262a687d8340cd23cc1e1}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_afdb8f4c7089262a687d8340cd23cc1e1}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!GetConnections@{GetConnections}}
+\index{GetConnections@{GetConnections}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{GetConnections()}{GetConnections()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_connection}{Amqp\+Connection}}\mbox{[}$\,$\mbox{]} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Get\+Connections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets the current list of connections. 
+
+\begin{DoxyReturn}{Returns}
+An array of the current AMQP connections.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a561a0499749740792d81751363a18d0b}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a561a0499749740792d81751363a18d0b}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!GetExchangeList@{GetExchangeList}}
+\index{GetExchangeList@{GetExchangeList}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{GetExchangeList()}{GetExchangeList()}}
+{\footnotesize\ttfamily Amqp\+Exchange\mbox{[}$\,$\mbox{]} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Get\+Exchange\+List (\begin{DoxyParamCaption}\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a list of exchanges for the current connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em virtual\+Host} & The optional virtual host to get exchanges for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of AMQP exchanges for the current connection.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_afefd2d367d17d1c28520bb696886f29e}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_afefd2d367d17d1c28520bb696886f29e}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!GetExchangeListAsync@{GetExchangeListAsync}}
+\index{GetExchangeListAsync@{GetExchangeListAsync}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{GetExchangeListAsync()}{GetExchangeListAsync()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Get\+Exchange\+List\+Async (\begin{DoxyParamCaption}\item[{Exchange\+List\+Event\+Handler}]{callback,  }\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a list of exchanges for the current connection using an asynchronous request. 
+
+This method is better suited for Unity 3D since it will not block the game thread while the request is made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & The callback that will receive the results.\\
+\hline
+{\em virtual\+Host} & The optional virtual host to get exchanges for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa95ddd9781f652e48d00d99a1979804a}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa95ddd9781f652e48d00d99a1979804a}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!GetExchanges@{GetExchanges}}
+\index{GetExchanges@{GetExchanges}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{GetExchanges()}{GetExchanges()}}
+{\footnotesize\ttfamily static Amqp\+Exchange\mbox{[}$\,$\mbox{]} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Get\+Exchanges (\begin{DoxyParamCaption}\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets a list of exchanges for the current connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em virtual\+Host} & The optional virtual host to get exchanges for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of AMQP exchanges for the current connection.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a52517fc424736068bbb7ea659ac08cf9}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a52517fc424736068bbb7ea659ac08cf9}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!GetExchangesAsync@{GetExchangesAsync}}
+\index{GetExchangesAsync@{GetExchangesAsync}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{GetExchangesAsync()}{GetExchangesAsync()}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Get\+Exchanges\+Async (\begin{DoxyParamCaption}\item[{Exchange\+List\+Event\+Handler}]{callback,  }\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets a list of exchanges for the current connection using an asynchronous request. 
+
+This method is better suited for Unity 3D since it will not block the game thread while the request is made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & The callback that will receive the results.\\
+\hline
+{\em virtual\+Host} & The optional virtual host to get exchanges for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5bbd03305ff16141fadab0625b6891f3}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5bbd03305ff16141fadab0625b6891f3}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!GetQueueList@{GetQueueList}}
+\index{GetQueueList@{GetQueueList}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{GetQueueList()}{GetQueueList()}}
+{\footnotesize\ttfamily Amqp\+Queue\mbox{[}$\,$\mbox{]} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Get\+Queue\+List (\begin{DoxyParamCaption}\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a list of queues for the current connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em virtual\+Host} & The optional virtual host to get exchanges for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of AMQP exchanges for the current connection.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a441ca0c606295a7e2b2fc554fbd93a38}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a441ca0c606295a7e2b2fc554fbd93a38}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!GetQueueListAsync@{GetQueueListAsync}}
+\index{GetQueueListAsync@{GetQueueListAsync}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{GetQueueListAsync()}{GetQueueListAsync()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Get\+Queue\+List\+Async (\begin{DoxyParamCaption}\item[{Queue\+List\+Event\+Handler}]{callback,  }\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a list of queues for the current connection using an asynchronous request. 
+
+This method is better suited for Unity 3D since it will not block the game thread while the request is made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & The callback that will receive the results.\\
+\hline
+{\em virtual\+Host} & The optional virtual host to get queues for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a358014f94afb234168028a9f806a7cb3}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a358014f94afb234168028a9f806a7cb3}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!GetQueues@{GetQueues}}
+\index{GetQueues@{GetQueues}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{GetQueues()}{GetQueues()}}
+{\footnotesize\ttfamily static Amqp\+Queue\mbox{[}$\,$\mbox{]} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Get\+Queues (\begin{DoxyParamCaption}\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets a list of queues for the current connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em virtual\+Host} & The optional virtual host to get exchanges for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of AMQP exchanges for the current connection.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5da1faeb3ac2e2d9b982c43f2c7f3d5f}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5da1faeb3ac2e2d9b982c43f2c7f3d5f}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!GetQueuesAsync@{GetQueuesAsync}}
+\index{GetQueuesAsync@{GetQueuesAsync}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{GetQueuesAsync()}{GetQueuesAsync()}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Get\+Queues\+Async (\begin{DoxyParamCaption}\item[{Queue\+List\+Event\+Handler}]{callback,  }\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets a list of queues for the current connection using an asynchronous request. 
+
+This method is better suited for Unity 3D since it will not block the game thread while the request is made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & The callback that will receive the results.\\
+\hline
+{\em virtual\+Host} & The optional virtual host to get queues for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a3b2f2b0c4f1b83c1f8f2c001d404a40c}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a3b2f2b0c4f1b83c1f8f2c001d404a40c}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Log@{Log}}
+\index{Log@{Log}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Log (\begin{DoxyParamCaption}\item[{object}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Logs a value to the console. 
+
+If the inspector property \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a499ec1cfe9783f32d417d3392bb68be0}{Write\+To\+Console}} is enabled, the value will also be written to the Amqp\+Console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to log.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a58fd4ec567f370043f027e8cea417725}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a58fd4ec567f370043f027e8cea417725}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Log@{Log}}
+\index{Log@{Log}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Log()}{Log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Log (\begin{DoxyParamCaption}\item[{string}]{text,  }\item[{params object\mbox{[}$\,$\mbox{]}}]{values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Logs a value to the console. 
+
+If the inspector property \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a499ec1cfe9783f32d417d3392bb68be0}{Write\+To\+Console}} is enabled, the value will also be written to the Amqp\+Console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The text string to format with values.\\
+\hline
+{\em values} & The values to use in the formatted string.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_add4e9f29c422416f0e45babaa114c7cc}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_add4e9f29c422416f0e45babaa114c7cc}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!LogToConsole@{LogToConsole}}
+\index{LogToConsole@{LogToConsole}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{LogToConsole()}{LogToConsole()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Log\+To\+Console (\begin{DoxyParamCaption}\item[{object}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Logs a value to the console. 
+
+If the inspector property \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a499ec1cfe9783f32d417d3392bb68be0}{Write\+To\+Console}} is enabled, the value will also be written to the Amqp\+Console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to log.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad286171b7b2618aa359596d824fab70d}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad286171b7b2618aa359596d824fab70d}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!LogToConsole@{LogToConsole}}
+\index{LogToConsole@{LogToConsole}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{LogToConsole()}{LogToConsole()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Log\+To\+Console (\begin{DoxyParamCaption}\item[{string}]{text,  }\item[{params object\mbox{[}$\,$\mbox{]}}]{values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Logs a value to the console. 
+
+If the inspector property \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a499ec1cfe9783f32d417d3392bb68be0}{Write\+To\+Console}} is enabled, the value will also be written to the Amqp\+Console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The text string to format with values.\\
+\hline
+{\em values} & The values to use in the formatted string.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a4197bb2c38cd094007258641c8979712}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a4197bb2c38cd094007258641c8979712}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Publish@{Publish}}
+\index{Publish@{Publish}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Publish()}{Publish()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Publish (\begin{DoxyParamCaption}\item[{string}]{exchange\+Name,  }\item[{string}]{routing\+Key,  }\item[{byte\mbox{[}$\,$\mbox{]}}]{message,  }\item[{IAmqp\+Message\+Properties}]{properties = {\ttfamily null},  }\item[{bool}]{mandatory = {\ttfamily false},  }\item[{bool}]{immediate = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Publishes a message on a given exchange. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exchange\+Name} & The name of the exchange to publish the message on.\\
+\hline
+{\em routing\+Key} & The optional routing key to use.\\
+\hline
+{\em message} & The message to publish.\\
+\hline
+{\em properties} & The optional message properties to use when publishing the message.\\
+\hline
+{\em mandatory} & Whether or not to publish with the AMQP \char`\"{}mandatory\char`\"{} flag.\\
+\hline
+{\em immediate} & Whether or not to publish with the AMQP \char`\"{}immediate\char`\"{} flag.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aea2646b9ca63af13db91ed236a1aaa59}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aea2646b9ca63af13db91ed236a1aaa59}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Publish@{Publish}}
+\index{Publish@{Publish}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Publish()}{Publish()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Publish (\begin{DoxyParamCaption}\item[{string}]{exchange\+Name,  }\item[{string}]{routing\+Key,  }\item[{string}]{message,  }\item[{IAmqp\+Message\+Properties}]{properties = {\ttfamily null},  }\item[{bool}]{mandatory = {\ttfamily false},  }\item[{bool}]{immediate = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Publishes a message on a given exchange. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exchange\+Name} & The name of the exchange to publish the message on.\\
+\hline
+{\em routing\+Key} & The optional routing key to use.\\
+\hline
+{\em message} & The message to publish.\\
+\hline
+{\em properties} & The optional message properties to use when publishing the message.\\
+\hline
+{\em mandatory} & Whether or not to publish with the AMQP \char`\"{}mandatory\char`\"{} flag.\\
+\hline
+{\em immediate} & Whether or not to publish with the AMQP \char`\"{}immediate\char`\"{} flag.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a116f93b90dfabd2dd289cfcde5880641}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a116f93b90dfabd2dd289cfcde5880641}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!PublishToExchange@{PublishToExchange}}
+\index{PublishToExchange@{PublishToExchange}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{PublishToExchange()}{PublishToExchange()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Publish\+To\+Exchange (\begin{DoxyParamCaption}\item[{string}]{exchange\+Name,  }\item[{string}]{routing\+Key,  }\item[{byte\mbox{[}$\,$\mbox{]}}]{message,  }\item[{IAmqp\+Message\+Properties}]{properties = {\ttfamily null},  }\item[{bool}]{mandatory = {\ttfamily false},  }\item[{bool}]{immediate = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Publishes a message on a given exchange. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exchange\+Name} & The name of the exchange to publish the message on.\\
+\hline
+{\em routing\+Key} & The optional routing key to use.\\
+\hline
+{\em message} & The message to publish.\\
+\hline
+{\em properties} & The optional message properties to use when publishing the message.\\
+\hline
+{\em mandatory} & Whether or not to publish with the AMQP \char`\"{}mandatory\char`\"{} flag.\\
+\hline
+{\em immediate} & Whether or not to publish with the AMQP \char`\"{}immediate\char`\"{} flag.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7261d2dc2edc1473115f641f392586f1}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7261d2dc2edc1473115f641f392586f1}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!PublishToExchange@{PublishToExchange}}
+\index{PublishToExchange@{PublishToExchange}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{PublishToExchange()}{PublishToExchange()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Publish\+To\+Exchange (\begin{DoxyParamCaption}\item[{string}]{exchange\+Name,  }\item[{string}]{routing\+Key,  }\item[{string}]{message,  }\item[{IAmqp\+Message\+Properties}]{properties = {\ttfamily null},  }\item[{bool}]{mandatory = {\ttfamily false},  }\item[{bool}]{immediate = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Publishes a message on a given exchange. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exchange\+Name} & The name of the exchange to publish the message on.\\
+\hline
+{\em routing\+Key} & The optional routing key to use.\\
+\hline
+{\em message} & The message to publish.\\
+\hline
+{\em properties} & The optional message properties to use when publishing the message.\\
+\hline
+{\em mandatory} & Whether or not to publish with the AMQP \char`\"{}mandatory\char`\"{} flag.\\
+\hline
+{\em immediate} & Whether or not to publish with the AMQP \char`\"{}immediate\char`\"{} flag.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad60a1e3b679ddd91b2f016af5a043a49}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad60a1e3b679ddd91b2f016af5a043a49}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!QueueExists@{QueueExists}}
+\index{QueueExists@{QueueExists}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{QueueExists()}{QueueExists()}}
+{\footnotesize\ttfamily static bool Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Queue\+Exists (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets whether or not a queue by a given name exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the queue to check for.\\
+\hline
+{\em virtual\+Host} & The optional virtual host to get queues for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the queue exists, False if not.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_abf2c69d5232769672dea79f8c4908fc1}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_abf2c69d5232769672dea79f8c4908fc1}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!QueueExistsOnHost@{QueueExistsOnHost}}
+\index{QueueExistsOnHost@{QueueExistsOnHost}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{QueueExistsOnHost()}{QueueExistsOnHost()}}
+{\footnotesize\ttfamily bool Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Queue\+Exists\+On\+Host (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{virtual\+Host = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets whether or not a queue by a given name exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the queue to check for.\\
+\hline
+{\em virtual\+Host} & The optional virtual host to get queues for. If NULL the connection\textquotesingle{}s default virtual host is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the queue exists, False if not.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aabf44fd4b09770a9b5f41e65daca90e1}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aabf44fd4b09770a9b5f41e65daca90e1}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!ResetConnection@{ResetConnection}}
+\index{ResetConnection@{ResetConnection}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{ResetConnection()}{ResetConnection()}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Reset\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Resets the connection when it has ended up in an aborted state. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a828a8270ba7a773113a5b770718d29eb}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a828a8270ba7a773113a5b770718d29eb}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!ResetConnectionToHost@{ResetConnectionToHost}}
+\index{ResetConnectionToHost@{ResetConnectionToHost}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{ResetConnectionToHost()}{ResetConnectionToHost()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Reset\+Connection\+To\+Host (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Resets the connection when it has ended up in an aborted state. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6f17879f675d0aab1c9282e61917ea09}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6f17879f675d0aab1c9282e61917ea09}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Subscribe@{Subscribe}}
+\index{Subscribe@{Subscribe}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Subscribe()}{Subscribe()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Subscribe (\begin{DoxyParamCaption}\item[{Amqp\+Exchange\+Subscription}]{subscription }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Subscribes to a given exchange. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subscription} & The exchange subscription to apply.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ac261ce030f8fea2eff795f4bf2e715ee}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ac261ce030f8fea2eff795f4bf2e715ee}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Subscribe@{Subscribe}}
+\index{Subscribe@{Subscribe}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Subscribe()}{Subscribe()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Subscribe (\begin{DoxyParamCaption}\item[{Amqp\+Queue\+Subscription}]{subscription }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Subscribes to a given queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subscription} & The exchange subscription to apply.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a0eb99521108102a987ffcc55c29fb15a}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a0eb99521108102a987ffcc55c29fb15a}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!SubscribeToExchange@{SubscribeToExchange}}
+\index{SubscribeToExchange@{SubscribeToExchange}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{SubscribeToExchange()}{SubscribeToExchange()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Subscribe\+To\+Exchange (\begin{DoxyParamCaption}\item[{Amqp\+Exchange\+Subscription}]{subscription }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subscribes to a given exchange. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subscription} & The exchange subscription to apply.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9d8e3de2432bcf3f4bc43179762cb77b}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9d8e3de2432bcf3f4bc43179762cb77b}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!SubscribeToQueue@{SubscribeToQueue}}
+\index{SubscribeToQueue@{SubscribeToQueue}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{SubscribeToQueue()}{SubscribeToQueue()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Subscribe\+To\+Queue (\begin{DoxyParamCaption}\item[{Amqp\+Queue\+Subscription}]{subscription }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subscribes to a given exchange. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subscription} & The exchange subscription to apply.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9f194b78985e1178ade2963a5a613dc2}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9f194b78985e1178ade2963a5a613dc2}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!UnityEventDebugExhangeMessageHandler@{UnityEventDebugExhangeMessageHandler}}
+\index{UnityEventDebugExhangeMessageHandler@{UnityEventDebugExhangeMessageHandler}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{UnityEventDebugExhangeMessageHandler()}{UnityEventDebugExhangeMessageHandler()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Unity\+Event\+Debug\+Exhange\+Message\+Handler (\begin{DoxyParamCaption}\item[{Amqp\+Exchange\+Subscription}]{subscription,  }\item[{IAmqp\+Received\+Message}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A default message received handler useful for debugging. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subscription} & The subscription the message was received on.\\
+\hline
+{\em message} & The message that was received.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6a64b7504099c85b5e3860a7ad419a02}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6a64b7504099c85b5e3860a7ad419a02}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!UnityEventDebugQueueMessageHandler@{UnityEventDebugQueueMessageHandler}}
+\index{UnityEventDebugQueueMessageHandler@{UnityEventDebugQueueMessageHandler}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{UnityEventDebugQueueMessageHandler()}{UnityEventDebugQueueMessageHandler()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Unity\+Event\+Debug\+Queue\+Message\+Handler (\begin{DoxyParamCaption}\item[{Amqp\+Queue\+Subscription}]{subscription,  }\item[{IAmqp\+Received\+Message}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A default message received handler useful for debugging. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subscription} & The subscription the message was received on.\\
+\hline
+{\em message} & The message that was received.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6df63daa66b9c546f3e1e2d9b5422d46}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6df63daa66b9c546f3e1e2d9b5422d46}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Unsubscribe@{Unsubscribe}}
+\index{Unsubscribe@{Unsubscribe}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Unsubscribe()}{Unsubscribe()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Unsubscribe (\begin{DoxyParamCaption}\item[{Amqp\+Exchange\+Subscription}]{subscription }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+unsubscribes from a given exchange. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subscription} & The exchange subscription to unsubscribe from.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a3c8849c4643c70d848ceb354d130deca}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a3c8849c4643c70d848ceb354d130deca}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Unsubscribe@{Unsubscribe}}
+\index{Unsubscribe@{Unsubscribe}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Unsubscribe()}{Unsubscribe()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Unsubscribe (\begin{DoxyParamCaption}\item[{Amqp\+Queue\+Subscription}]{subscription }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+unsubscribes from a given queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subscription} & The queue subscription to unsubscribe from.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6ed26bdd79cc3c48f05ae7aa99744d68}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a6ed26bdd79cc3c48f05ae7aa99744d68}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!UnsubscribeFromExchange@{UnsubscribeFromExchange}}
+\index{UnsubscribeFromExchange@{UnsubscribeFromExchange}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{UnsubscribeFromExchange()}{UnsubscribeFromExchange()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Unsubscribe\+From\+Exchange (\begin{DoxyParamCaption}\item[{Amqp\+Exchange\+Subscription}]{subscription }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+unsubscribes from a given exchange. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subscription} & The exchange subscription to unsubscribe from.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa5c9d3e05c7cc2cfa116662cd0362642}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa5c9d3e05c7cc2cfa116662cd0362642}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!UnsubscribeFromQueue@{UnsubscribeFromQueue}}
+\index{UnsubscribeFromQueue@{UnsubscribeFromQueue}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{UnsubscribeFromQueue()}{UnsubscribeFromQueue()}}
+{\footnotesize\ttfamily void Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Unsubscribe\+From\+Queue (\begin{DoxyParamCaption}\item[{Amqp\+Queue\+Subscription}]{subscription }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+unsubscribes from a given queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subscription} & The queue subscription to unsubscribe from.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5e7cf14a91dce92d8230528f78a31413}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5e7cf14a91dce92d8230528f78a31413}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Connection@{Connection}}
+\index{Connection@{Connection}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Connection}{Connection}}
+{\footnotesize\ttfamily string Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Connection}
+
+
+
+The name of the connection to use. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a2c082a91d4712bf7d571fc4fa0d6b996}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a2c082a91d4712bf7d571fc4fa0d6b996}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!ConnectOnStart@{ConnectOnStart}}
+\index{ConnectOnStart@{ConnectOnStart}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{ConnectOnStart}{ConnectOnStart}}
+{\footnotesize\ttfamily bool Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Connect\+On\+Start = true}
+
+
+
+Whether or not to connect to the messaging broker on start. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a54d2373dc8f3e4f1d04ece384ae28a3d}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a54d2373dc8f3e4f1d04ece384ae28a3d}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!ExchangeSubscriptions@{ExchangeSubscriptions}}
+\index{ExchangeSubscriptions@{ExchangeSubscriptions}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{ExchangeSubscriptions}{ExchangeSubscriptions}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_unity_amqp_exchange_subscription}{Unity\+Amqp\+Exchange\+Subscription}} \mbox{[}$\,$\mbox{]} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Exchange\+Subscriptions}
+
+
+
+A list of exchange subscriptions to subscribe to when connected. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a646893f6afbaa3d66997969a0783d938}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a646893f6afbaa3d66997969a0783d938}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnBlocked@{OnBlocked}}
+\index{OnBlocked@{OnBlocked}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnBlocked}{OnBlocked}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Blocked}
+
+
+
+Occurs when the client has been blocked by the AMQP message broker. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a88e6488e75b88e1cfd72bb54cccabc9c}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a88e6488e75b88e1cfd72bb54cccabc9c}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnConnected@{OnConnected}}
+\index{OnConnected@{OnConnected}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnConnected}{OnConnected}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Connected}
+
+
+
+Occurs when the client has connected to the AMQP message broker. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad155cf63b26dea2386261320c97a6dc9}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad155cf63b26dea2386261320c97a6dc9}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnConnectionAborted@{OnConnectionAborted}}
+\index{OnConnectionAborted@{OnConnectionAborted}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnConnectionAborted}{OnConnectionAborted}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Connection\+Aborted}
+
+
+
+Occurs when the client connection has aborted and must be manually reset. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa26bb544c870f4f98da3c6dc07a8f9e0}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_aa26bb544c870f4f98da3c6dc07a8f9e0}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnConnectionError@{OnConnectionError}}
+\index{OnConnectionError@{OnConnectionError}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnConnectionError}{OnConnectionError}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_exception_unity_event}{Exception\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Connection\+Error}
+
+
+
+Occurs when there is a connection error. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a42ce3022853e712700a2cc4a3deea88c}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a42ce3022853e712700a2cc4a3deea88c}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnDisconnected@{OnDisconnected}}
+\index{OnDisconnected@{OnDisconnected}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnDisconnected}{OnDisconnected}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Disconnected}
+
+
+
+Occurs when the client has disconnected from the AMQP message broker. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a2fa2ea530ca3a8caefd421683b8e72f4}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a2fa2ea530ca3a8caefd421683b8e72f4}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnDisconnecting@{OnDisconnecting}}
+\index{OnDisconnecting@{OnDisconnecting}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnDisconnecting}{OnDisconnecting}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Disconnecting}
+
+
+
+Occurs when the client has begun disconnecting from the AMQP message broker, but before it has finished. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a2387c6d7b9a54bbb4d825383216745da}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a2387c6d7b9a54bbb4d825383216745da}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnExchangeSubscribeError@{OnExchangeSubscribeError}}
+\index{OnExchangeSubscribeError@{OnExchangeSubscribeError}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnExchangeSubscribeError}{OnExchangeSubscribeError}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_exception_unity_event}{Exception\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Exchange\+Subscribe\+Error}
+
+
+
+Occurs when there is an error subscribing to an exchange. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9053782e545d1a1e6f84891dee9d7e83}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9053782e545d1a1e6f84891dee9d7e83}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnExchangeUnsubscribeError@{OnExchangeUnsubscribeError}}
+\index{OnExchangeUnsubscribeError@{OnExchangeUnsubscribeError}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnExchangeUnsubscribeError}{OnExchangeUnsubscribeError}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_exception_unity_event}{Exception\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Exchange\+Unsubscribe\+Error}
+
+
+
+Occurs when there is an error subscribing to a queue. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad494c12986d04aa1ea1cd9928295e873}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad494c12986d04aa1ea1cd9928295e873}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnQueueSubscribeError@{OnQueueSubscribeError}}
+\index{OnQueueSubscribeError@{OnQueueSubscribeError}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnQueueSubscribeError}{OnQueueSubscribeError}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_exception_unity_event}{Exception\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Queue\+Subscribe\+Error}
+
+
+
+Occurs when there is an error unsubscribing from an exchange. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a03346c86fe27c35f3d1d4b25b1e8ed0d}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a03346c86fe27c35f3d1d4b25b1e8ed0d}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnQueueUnsubscribeError@{OnQueueUnsubscribeError}}
+\index{OnQueueUnsubscribeError@{OnQueueUnsubscribeError}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnQueueUnsubscribeError}{OnQueueUnsubscribeError}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_exception_unity_event}{Exception\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Queue\+Unsubscribe\+Error}
+
+
+
+Occurs when there is an error unsubscribing from a queue. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a4cd47befa6f3bc0ebcbecd22e330860a}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a4cd47befa6f3bc0ebcbecd22e330860a}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnReconnecting@{OnReconnecting}}
+\index{OnReconnecting@{OnReconnecting}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnReconnecting}{OnReconnecting}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_unity_event}{Amqp\+Client\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Reconnecting}
+
+
+
+Occurs when the client has started reconnecting to the AMQP message broker. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad0bca0cc588dc14d56fe0fd791b47349}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad0bca0cc588dc14d56fe0fd791b47349}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnSubscribedToExchange@{OnSubscribedToExchange}}
+\index{OnSubscribedToExchange@{OnSubscribedToExchange}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnSubscribedToExchange}{OnSubscribedToExchange}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_exchange_subscription_unity_event}{Amqp\+Exchange\+Subscription\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Subscribed\+To\+Exchange}
+
+
+
+Occurs when the client subscribes to an exchange. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7ef79654e58d3394a43fef4fa265cd43}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a7ef79654e58d3394a43fef4fa265cd43}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnSubscribedToQueue@{OnSubscribedToQueue}}
+\index{OnSubscribedToQueue@{OnSubscribedToQueue}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnSubscribedToQueue}{OnSubscribedToQueue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_queue_subscription_unity_event}{Amqp\+Queue\+Subscription\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Subscribed\+To\+Queue}
+
+
+
+Occurs when the client subscribes to a queue. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ae3b6b1b540f2ec7ee3298bd65b3c0795}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ae3b6b1b540f2ec7ee3298bd65b3c0795}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnUnsubscribedFromExchange@{OnUnsubscribedFromExchange}}
+\index{OnUnsubscribedFromExchange@{OnUnsubscribedFromExchange}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnUnsubscribedFromExchange}{OnUnsubscribedFromExchange}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_exchange_subscription_unity_event}{Amqp\+Exchange\+Subscription\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Unsubscribed\+From\+Exchange}
+
+
+
+Occurs when the client unsubscribes from an exchange. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a53b2c7861b2e739e8ad5c02903345478}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a53b2c7861b2e739e8ad5c02903345478}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!OnUnsubscribedFromQueue@{OnUnsubscribedFromQueue}}
+\index{OnUnsubscribedFromQueue@{OnUnsubscribedFromQueue}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{OnUnsubscribedFromQueue}{OnUnsubscribedFromQueue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_queue_subscription_unity_event}{Amqp\+Queue\+Subscription\+Unity\+Event}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+On\+Unsubscribed\+From\+Queue}
+
+
+
+Occurs when the client unsubscribes from a queue. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_acad3e415fe70dcf91d71eb06ad1d15d3}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_acad3e415fe70dcf91d71eb06ad1d15d3}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!QueueSubscriptions@{QueueSubscriptions}}
+\index{QueueSubscriptions@{QueueSubscriptions}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{QueueSubscriptions}{QueueSubscriptions}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_unity_amqp_queue_subscription}{Unity\+Amqp\+Queue\+Subscription}} \mbox{[}$\,$\mbox{]} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Queue\+Subscriptions}
+
+
+
+A list of queue subscriptions to subscribe to when connected. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5e189eca991b0a81fc064801db9291d4}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a5e189eca991b0a81fc064801db9291d4}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!RelaxedSslValidation@{RelaxedSslValidation}}
+\index{RelaxedSslValidation@{RelaxedSslValidation}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{RelaxedSslValidation}{RelaxedSslValidation}}
+{\footnotesize\ttfamily bool Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Relaxed\+Ssl\+Validation = false}
+
+
+
+Whether or not to use relaxed SSL certificate validation for the broker. 
+
+This can be useful since Unity\textquotesingle{}s version of Mono (as of 5.\+x) has a very strict/buggy implementation around SSL/\+TLS certificate validation. This can make the connection inherently less secure as it will trust unverified certificates, but encrypted communications will work. This setting is applied on start and updating it during runtime will have no effect. \mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a499ec1cfe9783f32d417d3392bb68be0}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a499ec1cfe9783f32d417d3392bb68be0}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!WriteToConsole@{WriteToConsole}}
+\index{WriteToConsole@{WriteToConsole}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{WriteToConsole}{WriteToConsole}}
+{\footnotesize\ttfamily bool Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Write\+To\+Console = false}
+
+
+
+Whether or not AMQP events will be written to the AMQP console. 
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ac86d5242872b37fe0b279bd4d3a6d969}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ac86d5242872b37fe0b279bd4d3a6d969}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!BrokerConnection@{BrokerConnection}}
+\index{BrokerConnection@{BrokerConnection}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{BrokerConnection}{BrokerConnection}}
+{\footnotesize\ttfamily IAmqp\+Broker\+Connection Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Broker\+Connection\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The underlying broker connection used by the client. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad84625710fd560c8f754c09ff7cff2c1}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_ad84625710fd560c8f754c09ff7cff2c1}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!ConfigurationFilename@{ConfigurationFilename}}
+\index{ConfigurationFilename@{ConfigurationFilename}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{ConfigurationFilename}{ConfigurationFilename}}
+{\footnotesize\ttfamily string Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Configuration\+Filename\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets the file name for the AMQP connections data. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9b025d27ba743731c0b9947e70a57d36}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a9b025d27ba743731c0b9947e70a57d36}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!Instance@{Instance}}
+\index{Instance@{Instance}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client}{Amqp\+Client}} Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Gets the singleton instance of the class. 
+
+If you used more than one instance of \mbox{\hyperlink{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client}{Amqp\+Client}} then you should ignore this value is it will always resolve to the last instance to have initialized. This is convenient for global access to the class when only one instance is being used at a time. \mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a1046fbf1780b946ab146a1a7509cd901}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a1046fbf1780b946ab146a1a7509cd901}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!IsConnected@{IsConnected}}
+\index{IsConnected@{IsConnected}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{IsConnected}{IsConnected}}
+{\footnotesize\ttfamily bool? Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Is\+Connected\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets whether or not the amqp messaging system is currently connected or not. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a809409fe5142eb7a4b139d9a6291261d}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a809409fe5142eb7a4b139d9a6291261d}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!ReconnectRetryLimit@{ReconnectRetryLimit}}
+\index{ReconnectRetryLimit@{ReconnectRetryLimit}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{ReconnectRetryLimit}{ReconnectRetryLimit}}
+{\footnotesize\ttfamily uint? Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Reconnect\+Retry\+Limit\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the maximum number of times the client will attempt to reconnect to the host before aborting. 
+
+\mbox{\Hypertarget{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a050c3db8ef257eb30aad873409e6b1df}\label{class_cymatic_labs_1_1_unity3_d_1_1_amqp_1_1_amqp_client_a050c3db8ef257eb30aad873409e6b1df}} 
+\index{CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}!SubscribeRetryLimit@{SubscribeRetryLimit}}
+\index{SubscribeRetryLimit@{SubscribeRetryLimit}!CymaticLabs.Unity3D.Amqp.AmqpClient@{CymaticLabs.Unity3D.Amqp.AmqpClient}}
+\doxysubsubsection{\texorpdfstring{SubscribeRetryLimit}{SubscribeRetryLimit}}
+{\footnotesize\ttfamily byte? Cymatic\+Labs.\+Unity3\+D.\+Amqp.\+Amqp\+Client.\+Subscribe\+Retry\+Limit\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the maximum number of failed subscriptions the client will tolerate before preventing connection to the host. 
+
+Presently in Rabbit\+MQ if there is an error during subscription the host will close the connection so the client must reconnect. In cases where the client attempts to resubscribe the same failing subscription this can lead to an endless loop of connect-\/\texorpdfstring{$>$}{>}subscribe-\/\texorpdfstring{$>$}{>}error-\/\texorpdfstring{$>$}{>}reconnect-\/\texorpdfstring{$>$}{>}infinity. Putting a limit prevents the loop from going on infinitely. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Cymatic\+Labs/\+Amqp/\+Scripts/\mbox{\hyperlink{_amqp_client_8cs}{Amqp\+Client.\+cs}}\end{DoxyCompactItemize}

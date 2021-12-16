@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The falling box
+/// </summary>
 public class Ball : MonoBehaviour
 {
     [SerializeField]
@@ -11,6 +14,9 @@ public class Ball : MonoBehaviour
     private bool isVIP;
     private int farthestZone = 0;
 
+    /// <summary>
+    /// The base data the ball in constructed with
+    /// </summary>
     public BallData BallData { get => ballData; }
 
 	// Start is called before the first frame update

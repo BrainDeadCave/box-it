@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Controlls specific actions on the main menu, mostly feedback panels (error, loading, success, etc.)
+/// </summary>
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField]
@@ -45,6 +47,9 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     private GameObject networkManagerPrefab;
 
+    /// <summary>
+    /// The singleton instance of MainMenuController
+    /// </summary>
     public static MainMenuController Instance;
 
 	private void Start()
@@ -119,13 +124,18 @@ public class MainMenuController : MonoBehaviour
 		}
     }
 
+    /// <summary>
+    /// Show the error panel with an error message
+    /// </summary>
     public void Error(string message)
 	{
         errorPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
         errorPanel.SetActive(true);
         CloseLoadingWindow();
     }
-
+    /// <summary>
+    /// Show the loading panel with an error message
+    /// </summary>
     public void LoadingWindow(string message)
 	{
         if (!loadingPanel.activeSelf)
@@ -138,7 +148,9 @@ public class MainMenuController : MonoBehaviour
             Debug.LogWarning($"Tried to open loading window for message \"{message}\", but it is already open for message \"{loadingPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text}\"!");
 		}
     }
-
+    /// <summary>
+    /// Close the loading window
+    /// </summary>
     public void CloseLoadingWindow()
 	{
 		if (!loadingPanel.activeSelf)
@@ -155,27 +167,39 @@ public class MainMenuController : MonoBehaviour
             loadingPanel.SetActive(false);
 		}
     }
-
+    /// <summary>
+    /// Start timeout period for loging in
+    /// </summary>
     public void StartLoginTimeoutWindow()
 	{
         m_InLoginTimeoutWindow = true;
         m_RemainingLoginTimeoutTime = loginTimeoutTime;
     }
+    /// <summary>
+    /// End timeout period for loging in
+    /// </summary>
     public void AbortLoginTimeout()
     {
         m_InLoginTimeoutWindow = false;
     }
-
+    /// <summary>
+    /// Start timeout period for registering
+    /// </summary>
     public void StartRegisterTimeoutWindow()
 	{
         m_InRegisterTimeoutWindow = true;
         m_RemainingRegisterTimeoutTime = registerTimeoutTime;
     }
+    /// <summary>
+    /// Stop timeout period for registering
+    /// </summary>
     public void AbortRegisterTimeout()
     {
         m_InRegisterTimeoutWindow = false;
     }
-
+    /// <summary>
+    /// Show the success panel with a message
+    /// </summary>
     public void Success(string message)
 	{
         if (!successPanel.activeSelf)
@@ -189,13 +213,17 @@ public class MainMenuController : MonoBehaviour
             Debug.LogWarning($"Tried to open success window for message \"{message}\", but it is already open for message \"{successPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text}\"!");
         }
     }
-
+    /// <summary>
+    /// Show the success panel next frame (used for safe threading)
+    /// </summary>
     public void SuccessNextFrame(string message)
     {
         m_DoSuccessNextFrame = true;
         m_NextSuccessMessage = message;
     }
-
+    /// <summary>
+    /// Show the Register complete panel
+    /// </summary>
     public void RegisterCompleteWindow()
     {
         if (!registerSuccessPanel.activeSelf)
@@ -208,7 +236,9 @@ public class MainMenuController : MonoBehaviour
             Debug.LogWarning("Tried to open register success window, but it is already open!");
         }
     }
-
+    /// <summary>
+    /// Close the registration complete window
+    /// </summary>
     public void CloseRegisterCompleteWindow()
     {
         if (!registerSuccessPanel.activeSelf)
@@ -225,7 +255,9 @@ public class MainMenuController : MonoBehaviour
             registerSuccessPanel.SetActive(false);
         }
     }
-
+    /// <summary>
+    /// Show the connection error panel
+    /// </summary>
     public void ConnectionErrorWindow()
 	{
         if (!connectErrorPanel.activeSelf)
@@ -237,7 +269,9 @@ public class MainMenuController : MonoBehaviour
             Debug.LogWarning("Tried to open connection error window, but it is already open! How did I mess this up THIS much ;w;");
         }
     }
-
+    /// <summary>
+    /// Reset the main menu scene
+    /// </summary>
     public void ResetScene()
 	{
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

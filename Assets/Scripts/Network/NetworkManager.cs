@@ -8,9 +8,14 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using RabbitMQ.Client.Events;
 using System.Net.Sockets;
-
+/// <summary>
+/// Handles messaging between game and messaging server. Also attempts to connect to fallback nodes on connection error to the current node.
+/// </summary>
 public class NetworkManager : MonoBehaviour
 {
+	/// <summary>
+	/// The singleton instance of MainMenuController
+	/// </summary>
 	public static NetworkManager Instance;
 
 	[SerializeField]
@@ -146,7 +151,9 @@ public class NetworkManager : MonoBehaviour
 		return true;
 	}
 
-
+	/// <summary>
+	/// Sends a login request with supplied username and password
+	/// </summary>
 	public void Login(string username, string password)
 	{
 		IModel channel = GetValidChannel();
@@ -204,7 +211,9 @@ public class NetworkManager : MonoBehaviour
 		Debug.LogWarning("Could not find an open connection or channel to send to!");
 		return null;
 	}
-
+	/// <summary>
+	/// Sends a register request with supplied username and password
+	/// </summary>
 	public void Register(string username, string password)
 	{
 		IModel channel = GetValidChannel();
@@ -244,7 +253,9 @@ public class NetworkManager : MonoBehaviour
 						 body: body);
 		MainMenuController.Instance.StartRegisterTimeoutWindow();
 	}
-
+	/// <summary>
+	/// Tries to recreate all connections with main and fallback RabbitMQ cluster nodes
+	/// </summary>
 	public void Restart()
 	{
 		CreateConnections();

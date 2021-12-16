@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Deals with actions that would not occur in normal gameplay. Such as clicking to spawn a box.
+/// </summary>
 public class DebugActions : MonoBehaviour
 {
     [SerializeField]

@@ -4,13 +4,31 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 
+/*! \mainpage Box'it index page
+ *
+ * \section intro_sec Introduction
+ *
+ * Welcome to the Box'it documentation!
+ * To get started, look at the classes and files in the menu above!
+ *
+ */
+
+/// <summary>
+/// Controls overarching game logic and cross-component data flows.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+	/// <summary>
+	/// The singleton instance of the GameManager
+	/// </summary>
+	public static GameManager Instance;
     [SerializeField]
 	private Camera mainCam;
 	public InputAction mouseInput;
 
+	/// <summary>
+	/// The main camera being used
+	/// </summary>
 	public Camera MainCam { get => mainCam; set => mainCam = value; }
 
 	// Start is called before the first frame update

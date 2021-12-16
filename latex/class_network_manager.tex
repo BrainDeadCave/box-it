@@ -1,0 +1,81 @@
+\hypertarget{class_network_manager}{}\doxysection{Network\+Manager Class Reference}
+\label{class_network_manager}\index{NetworkManager@{NetworkManager}}
+
+
+Handles messaging between game and messaging server. Also attempts to connect to fallback nodes on connection error to the current node.  
+
+
+Inheritance diagram for Network\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_network_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_network_manager_ab28f5f3dd6c44dc07c304d96ab4563f4}{Login}} (string username, string password)
+\begin{DoxyCompactList}\small\item\em Sends a login request with supplied username and password \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_manager_a18cf57f8862c85aced851d4ac87884ad}{Register}} (string username, string password)
+\begin{DoxyCompactList}\small\item\em Sends a register request with supplied username and password \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_manager_a30635621554be64b0c04fabbae75d4d5}{Restart}} ()
+\begin{DoxyCompactList}\small\item\em Tries to recreate all connections with main and fallback Rabbit\+MQ cluster nodes \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_network_manager}{Network\+Manager}} \mbox{\hyperlink{class_network_manager_a676d5e300394e2ce43e49939dcdce7d4}{Instance}}
+\begin{DoxyCompactList}\small\item\em The singleton instance of \mbox{\hyperlink{class_main_menu_controller}{Main\+Menu\+Controller}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles messaging between game and messaging server. Also attempts to connect to fallback nodes on connection error to the current node. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_network_manager_ab28f5f3dd6c44dc07c304d96ab4563f4}\label{class_network_manager_ab28f5f3dd6c44dc07c304d96ab4563f4}} 
+\index{NetworkManager@{NetworkManager}!Login@{Login}}
+\index{Login@{Login}!NetworkManager@{NetworkManager}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily void Network\+Manager.\+Login (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sends a login request with supplied username and password 
+
+\mbox{\Hypertarget{class_network_manager_a18cf57f8862c85aced851d4ac87884ad}\label{class_network_manager_a18cf57f8862c85aced851d4ac87884ad}} 
+\index{NetworkManager@{NetworkManager}!Register@{Register}}
+\index{Register@{Register}!NetworkManager@{NetworkManager}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Network\+Manager.\+Register (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sends a register request with supplied username and password 
+
+\mbox{\Hypertarget{class_network_manager_a30635621554be64b0c04fabbae75d4d5}\label{class_network_manager_a30635621554be64b0c04fabbae75d4d5}} 
+\index{NetworkManager@{NetworkManager}!Restart@{Restart}}
+\index{Restart@{Restart}!NetworkManager@{NetworkManager}}
+\doxysubsubsection{\texorpdfstring{Restart()}{Restart()}}
+{\footnotesize\ttfamily void Network\+Manager.\+Restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tries to recreate all connections with main and fallback Rabbit\+MQ cluster nodes 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_network_manager_a676d5e300394e2ce43e49939dcdce7d4}\label{class_network_manager_a676d5e300394e2ce43e49939dcdce7d4}} 
+\index{NetworkManager@{NetworkManager}!Instance@{Instance}}
+\index{Instance@{Instance}!NetworkManager@{NetworkManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_network_manager}{Network\+Manager}} Network\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The singleton instance of \mbox{\hyperlink{class_main_menu_controller}{Main\+Menu\+Controller}} 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Network/\mbox{\hyperlink{_network_manager_8cs}{Network\+Manager.\+cs}}\end{DoxyCompactItemize}

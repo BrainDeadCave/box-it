@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Attached to a panel that can be closed by clicking anywhere on screen
+/// </summary>
 public class ClickToClosePanel : MonoBehaviour
 {
+    /// <summary>
+	/// Hide the attached panel when its outro animation completes
+	/// </summary>
     public bool hideOnAnimComplete = true;
+    /// <summary>
+	/// Can the user click to close this panel currently?
+	/// </summary>
     public bool canClickToClose = true;
 
     private Animator animator;
@@ -30,7 +38,9 @@ public class ClickToClosePanel : MonoBehaviour
             CheckClose();
 		}
     }
-
+    /// <summary>
+	/// Closes the panel (playing animation first)
+	/// </summary>
     public void ClosePanel()
 	{
         goingOut = true;

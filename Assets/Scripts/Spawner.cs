@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Spawns boxes. Variable spawn rates and box values.
+/// </summary>
 public class Spawner : MonoBehaviour
 {
     [SerializeField]
@@ -33,7 +36,9 @@ public class Spawner : MonoBehaviour
 		}
         GetComponent<Image>().fillAmount = currtime/time;
     }
-
+    /// <summary>
+    /// Spawn a ball at this spawner's location
+    /// </summary>
     public void SpawnBall()
 	{
 		if (!ballToSpawn){return;}
