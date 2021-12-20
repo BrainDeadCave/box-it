@@ -31,6 +31,7 @@ public class NetworkManager : MonoBehaviour
 
 	private bool m_DoConsumeEvalNextFrame = false;
 	private string m_ConsumeEvalMessage = "{}";
+	public int userID;
 	private void Awake()
 	{
 		if (!Instance)
@@ -62,12 +63,17 @@ public class NetworkManager : MonoBehaviour
 			}
 			else if (response.status.Equals("SUCCESS"))
 			{
+				Debug.Log(response);
+				Debug.Log(response.result);
+				Debug.Log(response.result.task);
 				if (response.result.task.Equals("login"))
 				{
 					if (response.result.status.Equals("success"))
 					{
 						//log in successful, show the userID in the happy box
-						MainMenuController.Instance.Success($"Logged in! UserID: {response.result.userid}");
+						userID = int.Parse(response.result.userid);
+						MainMenuController.Instance.ToGame();
+						//MainMenuController.Instance.Success($"Logged in! UserID: {response.result.userid}");
 					}
 					else
 					{
@@ -86,6 +92,45 @@ public class NetworkManager : MonoBehaviour
 					{
 						//register unsuccessful, show error in sad box
 						MainMenuController.Instance.Error(response.result.error);
+					}
+				}
+				else if (response.result.task.Equals("valupgradecheck"))
+				{
+					if (response.result.status.Equals("success"))
+					{
+						//check successful, set the amount
+						GameManager.Instance.SetNetworkValueUpgradeLevel(response.result.valuelevel);
+					}
+					else
+					{
+						//check unsuccessful, show error in sad box
+						GameManager.Instance.Error(response.result.error);
+					}
+				}
+				else if (response.result.task.Equals("coincheck"))
+				{
+					if (response.result.status.Equals("success"))
+					{
+						//check successful, set the amount
+						GameManager.Instance.SetNetworkCoins(response.result.coin);
+					}
+					else
+					{
+						//check unsuccessful, show error in sad box
+						GameManager.Instance.Error(response.result.error);
+					}
+				}
+				else if (response.result.task.Equals("speedcheck"))
+				{
+					if (response.result.status.Equals("success"))
+					{
+						//check successful, set the amount
+						GameManager.Instance.SetNetworkSpeedUpgradeLevel(response.result.speedup);
+					}
+					else
+					{
+						//check unsuccessful, show error in sad box
+						GameManager.Instance.Error(response.result.error);
 					}
 				}
 			}
@@ -259,6 +304,148 @@ public class NetworkManager : MonoBehaviour
 	public void Restart()
 	{
 		CreateConnections();
+	}
+
+	/// <summary>
+	/// Sends a get coins request with supplied userID
+	/// </summary>
+	public void GetCoins(int userID)
+	{
+		IModel channel = GetValidChannel();
+		if (channel == null)
+		{
+			GameManager.Instance.ConnectionErrorWindow();
+			return;
+		}
+		IDictionary<string, object> headers = new Dictionary<string, object>();
+		headers.Add("task", "tasks.coincheck");
+		Guid id = Guid.NewGuid();
+		headers.Add("id", id.ToString());
+
+		IBasicProperties props = channel.CreateBasicProperties();
+		props.Headers = headers;
+		props.CorrelationId = (string)headers["id"];
+		props.ContentEncoding = "utf-8";
+		props.ContentType = "application/json";
+		props.ReplyTo = "amq.rabbitmq.reply-to";
+
+		object[] taskArgs = new object[] { userID };
+
+		object[] arguments = new object[] { taskArgs, new object(), new object() };
+
+		MemoryStream stream = new MemoryStream();
+		DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(object[]));
+		ser.WriteObject(stream, arguments);
+		stream.Position = 0;
+		StreamReader sr = new StreamReader(stream);
+		string message = sr.ReadToEnd();
+
+		var body = Encoding.UTF8.GetBytes(message);
+
+		channel.BasicPublish(exchange: "",
+						 routingKey: "celery",
+						 basicProperties: props,
+						 body: body);
+	}
+
+	public void GetCoins()
+	{
+		GetCoins(userID);
+	}
+
+	/// <summary>
+	/// Sends a get coins request with supplied userID
+	/// </summary>
+	public void GetSpeedUpgrade(int userID)
+	{
+		IModel channel = GetValidChannel();
+		if (channel == null)
+		{
+			GameManager.Instance.ConnectionErrorWindow();
+			return;
+		}
+		IDictionary<string, object> headers = new Dictionary<string, object>();
+		headers.Add("task", "tasks.speedcheck");
+		Guid id = Guid.NewGuid();
+		headers.Add("id", id.ToString());
+
+		IBasicProperties props = channel.CreateBasicProperties();
+		props.Headers = headers;
+		props.CorrelationId = (string)headers["id"];
+		props.ContentEncoding = "utf-8";
+		props.ContentType = "application/json";
+		props.ReplyTo = "amq.rabbitmq.reply-to";
+
+		object[] taskArgs = new object[] { userID };
+
+		object[] arguments = new object[] { taskArgs, new object(), new object() };
+
+		MemoryStream stream = new MemoryStream();
+		DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(object[]));
+		ser.WriteObject(stream, arguments);
+		stream.Position = 0;
+		StreamReader sr = new StreamReader(stream);
+		string message = sr.ReadToEnd();
+
+		var body = Encoding.UTF8.GetBytes(message);
+
+		channel.BasicPublish(exchange: "",
+						 routingKey: "celery",
+						 basicProperties: props,
+						 body: body);
+	}
+
+	public void GetSpeedUpgrade()
+	{
+		GetSpeedUpgrade(userID);
+	}
+
+
+	/// <summary>
+	/// Sends a get coins request with supplied userID
+	/// </summary>
+	public void GetValueUpgrade(int userID)
+	{
+		IModel channel = GetValidChannel();
+		if (channel == null)
+		{
+			GameManager.Instance.ConnectionErrorWindow();
+			return;
+		}
+		IDictionary<string, object> headers = new Dictionary<string, object>();
+		headers.Add("task", "tasks.valupgradecheck");
+		Guid id = Guid.NewGuid();
+		headers.Add("id", id.ToString());
+
+		IBasicProperties props = channel.CreateBasicProperties();
+		props.Headers = headers;
+		props.CorrelationId = (string)headers["id"];
+		props.ContentEncoding = "utf-8";
+		props.ContentType = "application/json";
+		props.ReplyTo = "amq.rabbitmq.reply-to";
+
+		object[] taskArgs = new object[] { userID };
+
+		object[] arguments = new object[] { taskArgs, new object(), new object() };
+
+		MemoryStream stream = new MemoryStream();
+		DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(object[]));
+		ser.WriteObject(stream, arguments);
+		stream.Position = 0;
+		StreamReader sr = new StreamReader(stream);
+		string message = sr.ReadToEnd();
+
+		var body = Encoding.UTF8.GetBytes(message);
+
+		channel.BasicPublish(exchange: "",
+						 routingKey: "celery",
+						 basicProperties: props,
+						 body: body);
+	}
+
+	public void GetValueUpgrade()
+	{
+		GetValueUpgrade(userID);
 	}
 }
 

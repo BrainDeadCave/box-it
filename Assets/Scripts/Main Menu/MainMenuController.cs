@@ -276,4 +276,12 @@ public class MainMenuController : MonoBehaviour
 	{
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
+
+    /// <summary>
+    /// Goes to game scene
+    /// </summary>
+    public void ToGame()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

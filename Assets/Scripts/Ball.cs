@@ -61,4 +61,9 @@ public class Ball : MonoBehaviour
 		}
         farthestZone = zone.ZoneNum;
 	}
+
+    public void AddValue(int val)
+	{
+        value += val;
+	}
 }

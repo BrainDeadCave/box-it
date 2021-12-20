@@ -15,6 +15,8 @@ public class Spawner : MonoBehaviour
     private float time;
     private float currtime = 0;
 
+    private int valueIncrease;
+
 	private void Start()
 	{
          GetComponent<Image>().color = ballToSpawn.GetComponent<Ball>().BallData.Color;
@@ -45,6 +47,18 @@ public class Spawner : MonoBehaviour
         Vector3 spawnPos = transform.position;
         spawnPos.z = 0;
         //Debug.LogFormat("Trying to spawn ball at {0} with spawner", spawnPos);
-        Instantiate(ballToSpawn, spawnPos, Quaternion.identity);
+        GameObject newBall = Instantiate(ballToSpawn, spawnPos, Quaternion.identity);
+        newBall.GetComponent<Ball>().AddValue(valueIncrease);
+    }
+
+    public void SetValueIncrease(int newIncrease)
+	{
+        valueIncrease = newIncrease;
+	}
+
+    public void SetSpawnTime(float newTime)
+	{
+        time = newTime;
+
     }
 }

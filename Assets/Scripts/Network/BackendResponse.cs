@@ -32,6 +32,9 @@ public class Result
 	public string task;
 	public string status;
 	public string userid;
+	public string valuelevel;
+	public string coin;
+	public string speedup;
 	/// <summary>
 	/// Not filled unless an error occurred
 	/// </summary>
