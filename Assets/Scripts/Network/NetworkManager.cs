@@ -56,16 +56,12 @@ public class NetworkManager : MonoBehaviour
 		if (m_DoConsumeEvalNextFrame)
 		{
 			BackendResponse response = JsonUtility.FromJson<BackendResponse>(m_ConsumeEvalMessage);
-
 			if (response.status.Equals("FAILURE"))
 			{
 				MainMenuController.Instance.Error("Celery Error, see console");
 			}
 			else if (response.status.Equals("SUCCESS"))
 			{
-				Debug.Log(response);
-				Debug.Log(response.result);
-				Debug.Log(response.result.task);
 				if (response.result.task.Equals("login"))
 				{
 					if (response.result.status.Equals("success"))

@@ -58,7 +58,6 @@ public class Spawner : MonoBehaviour
 
     public void SetSpawnTime(float newTime)
 	{
-        time = newTime;
-
+        time -= newTime;
     }
 }

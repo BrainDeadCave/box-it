@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.SceneManagement;
 
 /*! \mainpage Box'it index page
  *
@@ -73,6 +74,13 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private List<Spawner> spawners;
 
+	private float timer = 0f;
+	private bool inGame = false;
+
+	private bool setCoinsNextFrame, setSpeedNextFrame, setValueNextFrame = false;
+	private string speedUp, coinSet;
+	private int upgradeLevel;
+
 	/// <summary>
 	/// The main camera being used
 	/// </summary>
@@ -100,29 +108,48 @@ public class GameManager : MonoBehaviour
 		NetworkManager.Instance.GetCoins();
 		NetworkManager.Instance.GetSpeedUpgrade();
 		NetworkManager.Instance.GetValueUpgrade();
+	}
+
+	public void Update()
+	{
 		//if not, heck out
-		float timer = 0f;
-		while (timer < 5.0f)
+		if (!inGame)
 		{
 			timer += Time.deltaTime;
+
+			if(gotCoins && setCoinsNextFrame)
+			{
+				SetCoins(coinSet);
+				setCoinsNextFrame = false;
+			}
+
+			if (gotSpeedUpgrade && setSpeedNextFrame)
+			{
+				SetSpeedUpgradeLevel(speedUp);
+				setSpeedNextFrame = false;
+			}
+
+			if (gotValueUpgrade && setValueNextFrame)
+			{
+				SetValueUpgradeLevel(upgradeLevel);
+				setValueNextFrame = false;
+			}
+
 			if (gotCoins && gotSpeedUpgrade && gotValueUpgrade)
 			{
-				break;
+				HideViewBlocker();
+				CloseLoadingWindow();
+				userIDTMP.text = $"User ID:{NetworkManager.Instance.userID}";
+				inGame = true;
+				Debug.Log("we're goin in hot");
+			}
+			else if (timer > 15.0f)
+			{
+				CloseLoadingWindow();
+				ConnectionErrorWindow();
+				inGame = true;
 			}
 		}
-
-		if (gotCoins && gotSpeedUpgrade && gotValueUpgrade)
-		{
-			HideViewBlocker();
-			CloseLoadingWindow();
-			userIDTMP.text = $"User ID:{NetworkManager.Instance.userID}";
-		}
-		else
-		{
-			CloseLoadingWindow();
-			ConnectionErrorWindow();
-		}
-
 
 	}
 
@@ -196,8 +223,8 @@ public class GameManager : MonoBehaviour
 		if (upgradeLevel < speedUpgrades.Count - 1)
 		{
 			//remove coins of old cost
-			SetCoins((coins - speedUpgrades[upgradeLevel + 1].cost).ToString());
-			//calculate and set new cost
+			//SetCoins((coins - speedUpgrades[upgradeLevel + 1].cost).ToString());
+			//calculate and set cost
 			int newCost = speedUpgrades[upgradeLevel + 1].cost;
 			//update button
 			speedButton.SetCost(newCost);
@@ -208,6 +235,19 @@ public class GameManager : MonoBehaviour
 				spawner.SetSpawnTime(speedUpgrades[upgradeLevel].secRemoval);
 			}
 			speedUpgradeLevel = upgradeLevel;
+
+			if (speedUpgradeLevel == speedUpgrades.Count - 1)
+			{
+				speedButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Maxed);
+			}
+			else if (coins < speedUpgrades[speedUpgradeLevel+1].cost)
+			{
+				speedButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Not_Purchaseable);
+			}
+			else
+			{
+				speedButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Purchaseable);
+			}
 		}
 		else if (upgradeLevel == speedUpgrades.Count - 1)
 		{
@@ -220,13 +260,16 @@ public class GameManager : MonoBehaviour
 
 	public void SetNetworkSpeedUpgradeLevel(string speedup)
 	{
-		SetSpeedUpgradeLevel(speedup);
+		Debug.LogWarning($"Setting speed level to {speedup}");
+		speedUp = speedup;
+		setSpeedNextFrame = true;
 		gotSpeedUpgrade = true;
 	}
 
-	public void SetCoins(string coins)
+	public void SetCoins(string coinsString)
 	{
-		int coinNum = int.Parse(coins);
+		int coinNum = int.Parse(coinsString);
+		coins = coinNum;
 		//update money text
 		coinsTMP.text = coins.ToString();
 		//update button backgrounds
@@ -234,7 +277,7 @@ public class GameManager : MonoBehaviour
 		{
 			speedButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Maxed);
 		}
-		else if(coinNum < speedUpgrades[speedUpgradeLevel].cost)
+		else if(coinNum < speedUpgrades[speedUpgradeLevel+1].cost)
 		{
 			speedButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Not_Purchaseable);
 		}
@@ -247,7 +290,7 @@ public class GameManager : MonoBehaviour
 		{
 			valueButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Maxed);
 		}
-		else if (coinNum < valueUpgrades[valueUpgradeLevel].cost)
+		else if (coinNum < valueUpgrades[valueUpgradeLevel+1].cost)
 		{
 			valueButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Not_Purchaseable);
 		}
@@ -257,10 +300,54 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+
+	public void SetCoins(int newCoins)
+	{
+		int coinNum = newCoins;
+
+		coins = coinNum;
+		//update money text
+		coinsTMP.text = coins.ToString();
+		//update button backgrounds
+		if (speedUpgradeLevel == speedUpgrades.Count - 1)
+		{
+			speedButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Maxed);
+		}
+		else if (coinNum < speedUpgrades[speedUpgradeLevel+1].cost)
+		{
+			speedButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Not_Purchaseable);
+		}
+		else
+		{
+			speedButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Purchaseable);
+		}
+
+		if (valueUpgradeLevel == valueUpgrades.Count - 1)
+		{
+			valueButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Maxed);
+		}
+		else if (coinNum < valueUpgrades[valueUpgradeLevel+1].cost)
+		{
+			valueButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Not_Purchaseable);
+		}
+		else
+		{
+			valueButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Purchaseable);
+		}
+	}
+
+	public void AddCoins(int amount)
+	{
+		Debug.Log($"Adding {amount}");
+		SetCoins(coins + amount);
+	}
+
 	public void SetNetworkCoins(string coin)
 	{
-		SetCoins(coin);
+		setCoinsNextFrame = true;
+		Debug.LogWarning($"Setting coins to {coin}");
 		gotCoins = true;
+		coinSet = coin;
 	}
 
 	public void SetValueUpgradeLevel(int upgradeLevel)
@@ -268,8 +355,8 @@ public class GameManager : MonoBehaviour
 		if (upgradeLevel < valueUpgrades.Count-1)
 		{
 			//remove coins of old cost
-			SetCoins((coins - valueUpgrades[upgradeLevel + 1].cost).ToString());
-			//calculate and set new cost
+			//SetCoins((coins - valueUpgrades[upgradeLevel + 1].cost).ToString());
+			//calculate and set cost
 			int newCost = valueUpgrades[upgradeLevel + 1].cost;
 			//update button
 			valueButton.SetCost(newCost);
@@ -280,6 +367,22 @@ public class GameManager : MonoBehaviour
 				spawner.SetValueIncrease((int)valueUpgrades[upgradeLevel].valueIncrease);
 			}
 			valueUpgradeLevel = upgradeLevel;
+
+			Debug.LogWarning(valueUpgradeLevel);
+			Debug.LogWarning(coins);
+			Debug.LogWarning(valueUpgrades[valueUpgradeLevel].cost);
+			if (valueUpgradeLevel == valueUpgrades.Count - 1)
+			{
+				valueButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Maxed);
+			}
+			else if (coins < valueUpgrades[valueUpgradeLevel+1].cost)
+			{
+				valueButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Not_Purchaseable);
+			}
+			else
+			{
+				valueButton.SetBackground(UpgradeButton.UpgradeBackgroundType.Purchaseable);
+			}
 		}
 		else if(upgradeLevel == valueUpgrades.Count - 1)
 		{
@@ -292,8 +395,18 @@ public class GameManager : MonoBehaviour
 
 	public void SetNetworkValueUpgradeLevel(string valuelevel)
 	{
-		int upgradeLevel = int.Parse(valuelevel);
-		SetValueUpgradeLevel(upgradeLevel);
+		Debug.LogWarning($"Setting value upgrade level to {valuelevel}");
+		setValueNextFrame = true;
+		upgradeLevel = int.Parse(valuelevel);
 		gotValueUpgrade = true;
+	}
+
+
+	/// <summary>
+	/// Reset the main menu scene
+	/// </summary>
+	public void ResetGame()
+	{
+		SceneManager.LoadScene(0);
 	}
 }

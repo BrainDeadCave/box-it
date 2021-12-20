@@ -51,13 +51,14 @@ public class Ball : MonoBehaviour
 		}
 		if (!zone.CanPassThrough)
 		{
-            Debug.LogFormat("Passed gate with multiplier {0}, would credit ${1}. Impassible gate, now destroying.", zone.Multiplier, value * zone.Multiplier);
+            //Debug.LogFormat("Passed gate with multiplier {0}, would credit ${1}. Impassible gate, now destroying.", zone.Multiplier, value * zone.Multiplier);
+            GameManager.Instance.AddCoins((int)(value * zone.Multiplier));
             Destroy(gameObject);
             return;
         }
         else if(zone.ZoneNum > farthestZone)
 		{
-            Debug.LogFormat("Passed gate with multiplier {0}, would credit ${1}", zone.Multiplier, value*zone.Multiplier);
+            //Debug.LogFormat("Passed gate with multiplier {0}, would credit ${1}", zone.Multiplier, value*zone.Multiplier);
 		}
         farthestZone = zone.ZoneNum;
 	}

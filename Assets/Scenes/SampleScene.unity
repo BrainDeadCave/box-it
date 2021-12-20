@@ -427,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5936963394998821804, guid: 4fcbf53ce1ffc3f4a8d8802d11737026, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5936963394998821804, guid: 4fcbf53ce1ffc3f4a8d8802d11737026, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3240,8 +3240,8 @@ MonoBehaviour:
   coinsTMP: {fileID: 300449193}
   userIDTMP: {fileID: 712671330}
   speedUpgrades:
-  - cost: 5
-    secRemoval: 0.5
+  - cost: 0
+    secRemoval: 0
   - cost: 100
     secRemoval: 0.5
   - cost: 1000
@@ -3260,7 +3260,11 @@ MonoBehaviour:
     secRemoval: 0.2
   - cost: 1000000000
     secRemoval: 0.2
+  - cost: 1000000000
+    secRemoval: 0.2
   valueUpgrades:
+  - cost: 0
+    valueIncrease: 0
   - cost: 5
     valueIncrease: 1
   - cost: 100
@@ -3279,6 +3283,8 @@ MonoBehaviour:
     valueIncrease: 500
   - cost: 100000000
     valueIncrease: 750
+  - cost: 1000000000
+    valueIncrease: 2000
   - cost: 1000000000
     valueIncrease: 2000
   spawners:
@@ -3927,7 +3933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5521599854658916850, guid: 5b6d419279abf8e459e27d1bf4f5c221, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5521599854658916850, guid: 5b6d419279abf8e459e27d1bf4f5c221, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4008,6 +4014,18 @@ PrefabInstance:
     - target: {fileID: 5521599854658916851, guid: 5b6d419279abf8e459e27d1bf4f5c221, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521599855365035098, guid: 5b6d419279abf8e459e27d1bf4f5c221, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1016405067}
+    - target: {fileID: 5521599855365035098, guid: 5b6d419279abf8e459e27d1bf4f5c221, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521599855365035098, guid: 5b6d419279abf8e459e27d1bf4f5c221, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b6d419279abf8e459e27d1bf4f5c221, type: 3}
@@ -4544,7 +4562,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1662482513}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4836,7 +4854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3062874600865626373, guid: 8521101b998378e469661a556cccb42d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3062874600865626373, guid: 8521101b998378e469661a556cccb42d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5258,10 +5276,10 @@ RectTransform:
   - {fileID: 64253872}
   - {fileID: 889532162}
   - {fileID: 712671329}
+  - {fileID: 1513655549}
   - {fileID: 1331757360}
   - {fileID: 89364409}
   - {fileID: 1632496102}
-  - {fileID: 1513655549}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
